@@ -1,25 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-Lj-tqS" userLabel="playerOneHand">
+                                <rect key="frame" x="138" y="520" width="98" height="147"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="OPS-mv-LQI"/>
+                                    <constraint firstAttribute="height" constant="147" id="Qxb-7X-w0k"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-Wo-Pjk" userLabel="pileOfCards">
+                                <rect key="frame" x="138" y="260" width="98" height="147"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-0v-DyX">
+                                <rect key="frame" x="138" y="520" width="93" height="147"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="99r-g4-aEc" userLabel="playerTwoHand">
+                                <rect key="frame" x="139" y="0.0" width="98" height="147"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95109296085858586" green="0.95109296085858586" blue="0.95109296085858586" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="d0d-Lj-tqS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25N-BT-xtY"/>
+                            <constraint firstItem="99r-g4-aEc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6A-h9-WRB"/>
+                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="M94-I2-AaU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="d0d-Lj-tqS" secondAttribute="bottom" id="TxO-v8-mhH"/>
+                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wy1-FF-fY0"/>
+                            <constraint firstItem="99r-g4-aEc" firstAttribute="width" secondItem="Aa8-Wo-Pjk" secondAttribute="width" id="ft2-Nr-2yd"/>
+                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="height" secondItem="d0d-Lj-tqS" secondAttribute="height" id="i5M-G4-GSI"/>
+                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="width" secondItem="d0d-Lj-tqS" secondAttribute="width" id="lsd-4G-qJi"/>
+                            <constraint firstItem="99r-g4-aEc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="qyK-Ci-uZQ"/>
+                            <constraint firstItem="99r-g4-aEc" firstAttribute="height" secondItem="Aa8-Wo-Pjk" secondAttribute="height" id="vXQ-sJ-lqD"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pileOfCards" destination="Aa8-Wo-Pjk" id="eWq-5Q-cSf"/>
+                        <outlet property="playerOneSwiped" destination="HWh-0v-DyX" id="Jgg-m4-13u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="277.5" y="338.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cardBack" width="488" height="679"/>
+    </resources>
 </document>
