@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pileOfCards: UIImageView!
     
     
+    @IBOutlet weak var pileOfCardsCount: UILabel!
     var newDeck = Deck()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +85,10 @@ class ViewController: UIViewController {
                 if (!newDeck.drawCard("1")) {
                     playerOneCardCount.text = String(newDeck.playerOneDeck.count)
                     pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
+                    
+                    pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
+                    
+                    
                     currentTurn = "2"
                     
                 } else {
@@ -105,6 +110,10 @@ class ViewController: UIViewController {
             if (!newDeck.drawCard("2")) {
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
                 pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
+                
+                pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
+                
+                
                 currentTurn = "1"
             } else {
                 newGame()
@@ -119,36 +128,44 @@ class ViewController: UIViewController {
     @IBAction func playerOneSlap(sender: AnyObject) {
         
         
-        let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
-        
-        if prefix == "Jack" {
-            newDeck.wonPile("1")
-            playerOneCardCount.text = String(newDeck.playerOneDeck.count)
+        if newDeck.mainPileDeck.count != 0 {
+            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
             
-            //
-        pileOfCards.image = UIImage(named: "none.png")
-            
-            newDeck.mainPileDeck.append(newDeck.playerOneDeck.removeFirst())
-            
+            if prefix == "Jack" {
+                newDeck.wonPile("1")
+                playerOneCardCount.text = String(newDeck.playerOneDeck.count)
+                
+                //
+                pileOfCards.image = UIImage(named: "none.png")
+                
+                pileOfCardsCount.text = "0"
+                
 
+            }
+            
         }
+        
     }
     
     
     @IBAction func playerTwoSlap(sender: AnyObject) {
         print("player two slapped a jack supposedly")
         
-
-        let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
-        
-        if prefix == "Jack" {
-            newDeck.wonPile("2")
-            playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
+        if newDeck.mainPileDeck.count != 0 {
+            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
             
-            pileOfCards.image = UIImage(named: "none.png")
-            
-//            newDeck.mainPileDeck.append(newDeck.playerTwoDeck.removeFirst())
+            if prefix == "Jack" {
+                newDeck.wonPile("2")
+                playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
+                
+                pileOfCards.image = UIImage(named: "none.png")
+                
+                pileOfCardsCount.text = "0"
+            }
         }
+        
+
+        
     }
 
 }
