@@ -7,6 +7,7 @@
 //
 
 import Darwin
+import UIKit
 
 
 // Project Euler #1 Solution in Swift
@@ -19,7 +20,7 @@ class Deck {
     
     var playerOneDeck:[String] = []
     var playerTwoDeck:[String] = []
-    var mainPile = "none"
+    var mainPileDeck: [String] = []
     //Initialize our deck
     //Bug I found: to declare array, need to do:
     
@@ -51,18 +52,49 @@ class Deck {
         }
     }
     
-    func drawCard(turn: String) {
+    func drawCard(turn: String) -> Bool {
         //The idea here is to remove
-        if turn == "1" {
-            mainPile = playerOneDeck.removeAtIndex(0)
-        } else {
-            mainPile = playerTwoDeck.removeAtIndex(0)
+        print("my turn is: ", turn)
+        if turn == "1" && playerOneDeck.count == 0 {
             
+            let alert = UIAlertView()
+            alert.title = "Congratulations!"
+            alert.message = "Player Two Wins."
+            alert.addButtonWithTitle("Done")
+            alert.show()
+            return true
+            
+        } else if turn == "2" && playerTwoDeck.count == 0 {
+            let alert = UIAlertView()
+            alert.title = "Congratulations!"
+            alert.message = "Player One Wins."
+            alert.addButtonWithTitle("Done")
+            alert.show()
+            return true
+            
+        } else {
+            if turn == "1" {
+                mainPileDeck.append(playerOneDeck.removeFirst())
+            } else {
+                mainPileDeck.append(playerTwoDeck.removeFirst())
+            }
+            
+            return false
         }
-        
-        
-        
     }
+    
+    func wonPile(player: String) {
+        if player == "1" {
+            print("gave stuff to player 1")
+            playerOneDeck += mainPileDeck
+            mainPileDeck = []
+        } else {
+            print("gave stuff to player 2")
+            playerTwoDeck += mainPileDeck
+            mainPileDeck = []
+        }
+    }
+    
     
     //Shuffles the array of cards in the deck
     func shuffleArray() {

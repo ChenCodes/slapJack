@@ -18,43 +18,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-Lj-tqS" userLabel="playerOneHand">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-Lj-tqS" userLabel="playerOneHand">
                                 <rect key="frame" x="138" y="520" width="98" height="147"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="OPS-mv-LQI"/>
-                                    <constraint firstAttribute="height" constant="147" id="Qxb-7X-w0k"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-Wo-Pjk" userLabel="pileOfCards">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-Wo-Pjk" userLabel="pileOfCards">
                                 <rect key="frame" x="138" y="260" width="98" height="147"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-0v-DyX">
-                                <rect key="frame" x="138" y="520" width="93" height="147"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="139" y="520" width="98" height="147"/>
+                                <connections>
+                                    <action selector="playerOneSlap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIw-k0-pnG"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="99r-g4-aEc" userLabel="playerTwoHand">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="99r-g4-aEc" userLabel="playerTwoHand">
                                 <rect key="frame" x="139" y="0.0" width="98" height="147"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-dv-F2p" userLabel="Player Two Swipe">
+                                <rect key="frame" x="139" y="0.0" width="98" height="147"/>
+                                <connections>
+                                    <action selector="playerTwoSlap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q3P-28-HbO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv1-dG-NtJ">
+                                <rect key="frame" x="271" y="564" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs3-rx-Nhz">
+                                <rect key="frame" x="289" y="603" width="61" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-ls-6oF">
+                                <rect key="frame" x="23" y="35" width="61" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="WEr-wq-10U"/>
+                                    <constraint firstAttribute="height" constant="44" id="qgS-bD-OjL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWV-NQ-zeG">
+                                <rect key="frame" x="20" y="87" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.95109296085858586" green="0.95109296085858586" blue="0.95109296085858586" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.39981849747474751" green="0.39981849747474751" blue="0.39981849747474751" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="d0d-Lj-tqS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25N-BT-xtY"/>
-                            <constraint firstItem="99r-g4-aEc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J6A-h9-WRB"/>
-                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="M94-I2-AaU"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="d0d-Lj-tqS" secondAttribute="bottom" id="TxO-v8-mhH"/>
-                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wy1-FF-fY0"/>
-                            <constraint firstItem="99r-g4-aEc" firstAttribute="width" secondItem="Aa8-Wo-Pjk" secondAttribute="width" id="ft2-Nr-2yd"/>
-                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="height" secondItem="d0d-Lj-tqS" secondAttribute="height" id="i5M-G4-GSI"/>
-                            <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="width" secondItem="d0d-Lj-tqS" secondAttribute="width" id="lsd-4G-qJi"/>
-                            <constraint firstItem="99r-g4-aEc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="qyK-Ci-uZQ"/>
-                            <constraint firstItem="99r-g4-aEc" firstAttribute="height" secondItem="Aa8-Wo-Pjk" secondAttribute="height" id="vXQ-sJ-lqD"/>
+                            <constraint firstItem="mQc-ls-6oF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="0kA-kK-2PK"/>
+                            <constraint firstItem="mQc-ls-6oF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="YQr-Cg-TwD"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="pileOfCards" destination="Aa8-Wo-Pjk" id="eWq-5Q-cSf"/>
+                        <outlet property="playerOneCardCount" destination="gs3-rx-Nhz" id="LVa-wi-AUF"/>
                         <outlet property="playerOneSwiped" destination="HWh-0v-DyX" id="Jgg-m4-13u"/>
+                        <outlet property="playerTwoCardCount" destination="mQc-ls-6oF" id="6oZ-Qx-57q"/>
+                        <outlet property="playerTwoSwiped" destination="HgO-dv-F2p" id="Koo-aB-Rng"/>
+                        <outlet property="playerTwoTextLabel" destination="yWV-NQ-zeG" id="AL4-Xm-X8J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
