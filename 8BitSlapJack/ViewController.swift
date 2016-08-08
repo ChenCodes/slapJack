@@ -11,56 +11,36 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var playerOneCardCount: UILabel!
-    
     @IBOutlet weak var playerTwoCardCount: UILabel!
-    //First we need a deck of all the cards, they can just be represented as strings.
     @IBOutlet weak var playerTwoTextLabel: UILabel!
-    
-    
     @IBOutlet weak var pileOfCards: UIImageView!
-    
-    
     @IBOutlet weak var pileOfCardsCount: UILabel!
-    var newDeck = Deck()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-       
-        playerTwoCardCount.transform = CGAffineTransformMakeRotation(CGFloat(M_PI));
-        playerTwoTextLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI));
-
-
-        
-        
-        
-        var swipeButtonUp: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "buttonUp")
-        swipeButtonUp.direction = UISwipeGestureRecognizerDirection.Up
-
-        self.playerOneSwiped.addGestureRecognizer(swipeButtonUp)
-        
-        
-        var swipeButtonDown: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "buttonDown")
-        swipeButtonDown.direction = UISwipeGestureRecognizerDirection.Down
-        
-        self.playerTwoSwiped.addGestureRecognizer(swipeButtonDown)
-        
-        
-        newGame()
-        
-        
-        
-    }
-
+    @IBOutlet weak var playerTwoDeckImage: UIImageView!
+    
     @IBOutlet weak var playerOneSwiped: UIButton!
     @IBOutlet weak var playerTwoSwiped: UIButton!
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var newDeck = Deck()
+    var currentTurn = "1"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       
+        playerTwoCardCount.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        playerTwoTextLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        playerTwoDeckImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+
+        let swipeButtonUp: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "buttonUp")
+        let swipeButtonDown: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "buttonDown")
+        swipeButtonUp.direction = UISwipeGestureRecognizerDirection.Up
+        swipeButtonDown.direction = UISwipeGestureRecognizerDirection.Down
+        
+        self.playerOneSwiped.addGestureRecognizer(swipeButtonUp)
+        self.playerTwoSwiped.addGestureRecognizer(swipeButtonDown)
+        
+        newGame()
     }
     
-    
-    var currentTurn = "1"
     func newGame() {
         newDeck = Deck()
         newDeck.shuffleArray()
@@ -68,11 +48,9 @@ class ViewController: UIViewController {
         
         playerOneCardCount.text = String(newDeck.playerOneDeck.count)
         playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
-        
-        
     }
     
-    //Player one swipe action
+
     func buttonUp() {
         if currentTurn == "1" {
             
@@ -94,79 +72,48 @@ class ViewController: UIViewController {
                 } else {
                     newGame()
                 }
-                
-                
             }
         }
     }
-    
-    
     
     //Player two swipe action
     func buttonDown() {
         if currentTurn == "2" {
-            
             print("i just swiped a card into the deck from player two's hand")
             if (!newDeck.drawCard("2")) {
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
                 pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
-                
                 pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
-                
-                
                 currentTurn = "1"
             } else {
                 newGame()
             }
-            
-            
-            
-            
         }
     }
     
     @IBAction func playerOneSlap(sender: AnyObject) {
-        
-        
         if newDeck.mainPileDeck.count != 0 {
             let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
-            
             if prefix == "Jack" {
                 newDeck.wonPile("1")
                 playerOneCardCount.text = String(newDeck.playerOneDeck.count)
-                
-                //
                 pileOfCards.image = UIImage(named: "none.png")
-                
                 pileOfCardsCount.text = "0"
-                
-
             }
-            
         }
-        
     }
     
     
     @IBAction func playerTwoSlap(sender: AnyObject) {
         print("player two slapped a jack supposedly")
-        
         if newDeck.mainPileDeck.count != 0 {
             let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
-            
             if prefix == "Jack" {
                 newDeck.wonPile("2")
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
-                
                 pileOfCards.image = UIImage(named: "none.png")
-                
                 pileOfCardsCount.text = "0"
             }
         }
-        
-
-        
     }
-
 }
-
