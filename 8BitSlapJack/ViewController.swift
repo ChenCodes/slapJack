@@ -17,11 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var pileOfCardsCount: UILabel!
     @IBOutlet weak var playerTwoDeckImage: UIImageView!
     
+    @IBOutlet weak var playerOneDeckView: UIView!
+    @IBOutlet weak var playerTwoDeckView: UIView!
+    
     @IBOutlet weak var playerOneSwiped: UIButton!
     @IBOutlet weak var playerTwoSwiped: UIButton!
     
     var newDeck = Deck()
-    var currentTurn = "1"
+    var isPlayerOneTurn = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,24 @@ class ViewController: UIViewController {
         self.playerTwoSwiped.addGestureRecognizer(swipeButtonDown)
         
         newGame()
+        fadeOut()
+    }
+    
+    func animateSelectedCard(duration: NSTimeInterval = 1.0) {
+        UIView.animateWithDuration(duration, animations: {
+            self.playerOneDeckView.alpha = 1.0
+        })
+//        fadeOut()
+    }
+    
+    func fadeOut(duration duration: NSTimeInterval = 1.0) {
+        UIView.animateWithDuration(1,
+                                   delay: 0.0,
+                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
+                                   animations: {
+                                    self.playerOneDeckView.alpha = 0.0
+                                    },
+                                   completion: nil)
     }
     
     func newGame() {
@@ -52,7 +73,7 @@ class ViewController: UIViewController {
     
 
     func buttonUp() {
-        if currentTurn == "1" {
+        if isPlayerOneTurn == "1" {
             
             if playerOneCardCount == 0 {
                 print("game is over!")
@@ -67,7 +88,7 @@ class ViewController: UIViewController {
                     pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
                     
                     
-                    currentTurn = "2"
+                    isPlayerOneTurn = "2"
                     
                 } else {
                     newGame()
@@ -78,13 +99,13 @@ class ViewController: UIViewController {
     
     //Player two swipe action
     func buttonDown() {
-        if currentTurn == "2" {
+        if isPlayerOneTurn == "2" {
             print("i just swiped a card into the deck from player two's hand")
             if (!newDeck.drawCard("2")) {
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
                 pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
                 pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
-                currentTurn = "1"
+                isPlayerOneTurn = "1"
             } else {
                 newGame()
             }
