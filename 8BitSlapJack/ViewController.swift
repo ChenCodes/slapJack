@@ -84,7 +84,7 @@ class ViewController: UIViewController {
                 if (!newDeck.drawCard("1")) {
                     playerOneCardCount.text = String(newDeck.playerOneDeck.count)
                     pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
-                    
+                    pileOfCards.alpha = 1.0
                     pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
                     
                     
@@ -104,6 +104,7 @@ class ViewController: UIViewController {
             if (!newDeck.drawCard("2")) {
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
                 pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
+                pileOfCards.alpha = 1.0
                 pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
                 isPlayerOneTurn = "1"
             } else {
@@ -118,7 +119,8 @@ class ViewController: UIViewController {
             if prefix == "Jack" {
                 newDeck.wonPile("1")
                 playerOneCardCount.text = String(newDeck.playerOneDeck.count)
-                pileOfCards.image = UIImage(named: "none.png")
+                pileOfCards.image = UIImage(named: "cardBack.png")
+                pileOfCards.alpha = 0.5
                 pileOfCardsCount.text = "0"
             }
         }
@@ -132,7 +134,8 @@ class ViewController: UIViewController {
             if prefix == "Jack" {
                 newDeck.wonPile("2")
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
-                pileOfCards.image = UIImage(named: "none.png")
+                pileOfCards.image = UIImage(named: "cardBack.png")
+                pileOfCards.alpha = 0.5
                 pileOfCardsCount.text = "0"
             }
         }
