@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-Lj-tqS" userLabel="playerOneHand">
-                                <rect key="frame" x="138" y="520" width="98" height="147"/>
-                                <gestureRecognizers/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-Wo-Pjk" userLabel="pileOfCards">
                                 <rect key="frame" x="138" y="260" width="98" height="147"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-0v-DyX">
-                                <rect key="frame" x="139" y="520" width="98" height="147"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-0v-DyX">
+                                <rect key="frame" x="139" y="477" width="98" height="147"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="iUn-Y9-Qgm"/>
+                                    <constraint firstAttribute="height" constant="147" id="k6W-m8-HAa"/>
+                                </constraints>
                                 <connections>
                                     <action selector="playerOneSlap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIw-k0-pnG"/>
                                 </connections>
@@ -74,11 +74,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-Lj-tqS" userLabel="playerOneHand">
+                                <rect key="frame" x="138" y="477" width="98" height="147"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="L9y-u5-77n"/>
+                                    <constraint firstAttribute="height" constant="147" id="RDu-GL-CfO"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.39981849747474751" green="0.39981849747474751" blue="0.39981849747474751" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29435619109251798" green="0.39831912878787878" blue="0.27178159219522596" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mQc-ls-6oF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="0kA-kK-2PK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HWh-0v-DyX" secondAttribute="bottom" constant="43" id="GtH-rf-yum"/>
                             <constraint firstItem="mQc-ls-6oF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="YQr-Cg-TwD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="d0d-Lj-tqS" secondAttribute="bottom" constant="43" id="c0T-hD-hz6"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
