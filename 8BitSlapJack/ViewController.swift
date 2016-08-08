@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         self.playerTwoSwiped.addGestureRecognizer(swipeButtonDown)
         
         newGame()
-        fadeOut()
+        animateSelectedDeck(deck: self.playerOneDeckView)
     }
     
     func animateSelectedCard(duration: NSTimeInterval = 1.0) {
@@ -52,12 +52,22 @@ class ViewController: UIViewController {
 //        fadeOut()
     }
     
-    func fadeOut(duration duration: NSTimeInterval = 1.0) {
+    func animateSelectedDeck(duration duration: NSTimeInterval = 1.0, deck: UIView) {
         UIView.animateWithDuration(1,
                                    delay: 0.0,
                                    options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
                                    animations: {
-                                    self.playerOneDeckView.alpha = 0.0
+                                    deck.alpha = 0.0
+                                    },
+                                   completion: nil)
+    }
+    
+    func stopAnimatingSelectedDeck(duration duration: NSTimeInterval = 1.0, deck: UIView) {
+        UIView.animateWithDuration(1,
+                                   delay: 0.0,
+                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
+                                   animations: {
+                                    deck.alpha = 1.0
                                     },
                                    completion: nil)
     }
@@ -89,6 +99,10 @@ class ViewController: UIViewController {
                     
                     
                     isPlayerOneTurn = "2"
+                    animateSelectedDeck(deck: self.playerTwoDeckView)
+                    stopAnimatingSelectedDeck(deck: self.playerOneDeckView)
+                    self.playerOneDeckView.layer.removeAllAnimations()
+
                     
                 } else {
                     newGame()
@@ -107,6 +121,11 @@ class ViewController: UIViewController {
                 pileOfCards.alpha = 1.0
                 pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
                 isPlayerOneTurn = "1"
+                
+                animateSelectedDeck(deck: self.playerOneDeckView)
+                stopAnimatingSelectedDeck(deck: self.playerTwoDeckView)
+                self.playerTwoDeckView.layer.removeAllAnimations()
+                
             } else {
                 newGame()
             }
@@ -119,9 +138,7 @@ class ViewController: UIViewController {
             if prefix == "Jack" {
                 newDeck.wonPile("1")
                 playerOneCardCount.text = String(newDeck.playerOneDeck.count)
-                pileOfCards.image = UIImage(named: "cardBack.png")
-                pileOfCards.alpha = 0.5
-                pileOfCardsCount.text = "0"
+                cleanTheDeck()
             }
         }
     }
@@ -134,10 +151,14 @@ class ViewController: UIViewController {
             if prefix == "Jack" {
                 newDeck.wonPile("2")
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
-                pileOfCards.image = UIImage(named: "cardBack.png")
-                pileOfCards.alpha = 0.5
-                pileOfCardsCount.text = "0"
+                cleanTheDeck()
             }
         }
+    }
+    
+    func cleanTheDeck() {
+        pileOfCards.image = UIImage(named: "cardBack.png")
+        pileOfCards.alpha = 0.5
+        pileOfCardsCount.text = "0"
     }
 }
