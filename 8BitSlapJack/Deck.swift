@@ -106,27 +106,9 @@ class Deck {
         }
         deck = tempArray
     }
-
     
-    
-    
-    
-    
-    
-    
+    func penalty() {
+        
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

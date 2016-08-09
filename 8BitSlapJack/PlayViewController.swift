@@ -27,7 +27,7 @@ class PlayViewController: UIViewController {
     
     
     var newDeck = Deck()
-    var isPlayerOneTurn = "1"
+    var playerTurn = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +114,7 @@ class PlayViewController: UIViewController {
     
 
     func p1DeckSwipe() {
-        if isPlayerOneTurn == "1" {
+        if playerTurn == "1" {
             
             if playerOneCardCount == 0 {
                 print("game is over!")
@@ -127,9 +127,8 @@ class PlayViewController: UIViewController {
                     pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
                     pileOfCards.alpha = 1.0
                     pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
+                    playerTurn = "2"
                     
-                    
-                    isPlayerOneTurn = "2"
                     animateSelectedDeck(deck: self.playerTwoDeckView)
                     stopAnimatingSelectedDeck(deck: self.playerOneDeckView)
                     self.playerOneDeckView.layer.removeAllAnimations()
@@ -143,14 +142,14 @@ class PlayViewController: UIViewController {
     }
 
     func p2DeckSwipe() {
-        if isPlayerOneTurn == "2" {
+        if playerTurn == "2" {
             print("i just swiped a card into the deck from player two's hand")
             if (!newDeck.drawCard("2")) {
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
                 pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
                 pileOfCards.alpha = 1.0
                 pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
-                isPlayerOneTurn = "1"
+                playerTurn = "1"
                 
                 animateSelectedDeck(deck: self.playerOneDeckView)
                 stopAnimatingSelectedDeck(deck: self.playerTwoDeckView)
