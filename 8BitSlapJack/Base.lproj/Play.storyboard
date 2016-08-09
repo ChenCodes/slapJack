@@ -156,12 +156,26 @@
                                     <constraint firstAttribute="width" constant="98" id="PC9-dR-spT"/>
                                 </constraints>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQZ-dr-LnT">
+                                <rect key="frame" x="291" y="492" width="55" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.01275507046" blue="0.030845615980000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AR7-Og-xeW">
+                                <rect key="frame" x="162" y="309" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="MjZ-4l-Bm2"/>
+                                    <constraint firstAttribute="height" constant="50" id="Pka-4J-gkP"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29435619109251798" green="0.39831912878787878" blue="0.27178159219522596" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Aa8-Wo-Pjk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0NW-fY-tN1"/>
                             <constraint firstItem="mQc-ls-6oF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="0kA-kK-2PK"/>
                             <constraint firstItem="MZe-kL-2x4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="1jm-Wi-uhf"/>
+                            <constraint firstItem="AR7-Og-xeW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5KI-Yr-vRh"/>
                             <constraint firstItem="0Bt-Wm-uc2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7Cr-Yl-wfP"/>
                             <constraint firstItem="0Bt-Wm-uc2" firstAttribute="leading" secondItem="Aa8-Wo-Pjk" secondAttribute="trailing" constant="40" id="Djf-ti-GPM"/>
                             <constraint firstItem="HgO-dv-F2p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EcA-r8-rIK"/>
@@ -173,6 +187,7 @@
                             <constraint firstItem="sGh-WN-8zQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tee-Ph-bjw"/>
                             <constraint firstItem="MZe-kL-2x4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WOk-HZ-Zd4"/>
                             <constraint firstItem="mQc-ls-6oF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="YQr-Cg-TwD"/>
+                            <constraint firstItem="AR7-Og-xeW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aC0-fZ-e4J"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gs3-rx-Nhz" secondAttribute="bottom" constant="20" id="fBv-8K-O2b"/>
                             <constraint firstItem="629-bN-oVN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fmi-U2-Inp"/>
                             <constraint firstItem="HgO-dv-F2p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jLc-h6-iUO"/>
@@ -185,6 +200,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="penaltyLabel" destination="jQZ-dr-LnT" id="czF-H2-ibg"/>
                         <outlet property="pileOfCards" destination="Aa8-Wo-Pjk" id="eWq-5Q-cSf"/>
                         <outlet property="pileOfCardsCount" destination="0Bt-Wm-uc2" id="uJG-93-NSe"/>
                         <outlet property="pileSwiped" destination="629-bN-oVN" id="cu2-Je-hvV"/>
@@ -196,6 +212,7 @@
                         <outlet property="playerTwoDeckView" destination="MZe-kL-2x4" id="DX9-U6-58b"/>
                         <outlet property="playerTwoSwiped" destination="HgO-dv-F2p" id="Koo-aB-Rng"/>
                         <outlet property="playerTwoTextLabel" destination="yWV-NQ-zeG" id="AL4-Xm-X8J"/>
+                        <outlet property="redXImageView" destination="AR7-Og-xeW" id="RdH-Ki-yra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -205,5 +222,6 @@
     </scenes>
     <resources>
         <image name="cardBack" width="488" height="679"/>
+        <image name="xLogo" width="509" height="456"/>
     </resources>
 </document>

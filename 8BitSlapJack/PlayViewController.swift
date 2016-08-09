@@ -25,6 +25,9 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var pileSwiped: UIButton!
     
+    @IBOutlet weak var penaltyLabel: UILabel!
+    
+    @IBOutlet weak var redXImageView: UIImageView!
     
     var newDeck = Deck()
     var isPlayerOneTurn = "1"
@@ -38,6 +41,7 @@ class PlayViewController: UIViewController {
         newGame()
         animateSelectedDeck(deck: self.playerOneDeckView)
         self.playerOneDeckView.alpha = 1.0
+        self.redXImageView.alpha = 0.0
     }
     
     func invertPlayerTwoSide() {
@@ -62,6 +66,22 @@ class PlayViewController: UIViewController {
         self.pileSwiped.addGestureRecognizer(pileSwipeDown)
     }
     
+    func animateBigRedX(bigX: UIImageView) {
+        bigX.alpha = 0.5
+        UIView.animateWithDuration(0.2) { () -> Void in
+            
+            UIView.animateWithDuration(0.01,
+                                       delay: 0.0,
+                                       options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.Autoreverse],
+                                       animations: {
+                                        bigX.alpha = 1.0
+                },
+                                       completion: nil)
+        }
+        bigX.alpha = 0.0
+        
+    }
+    
     func animateSelectedDeck(duration duration: NSTimeInterval = 1.0, deck: UIView) {
         UIView.animateWithDuration(1,
                                    delay: 0.0,
@@ -80,6 +100,46 @@ class PlayViewController: UIViewController {
                                     deck.alpha = 1.0
                                     },
                                    completion: nil)
+    }
+    
+    func animatePile(pile: UIImageView) {
+        pile.alpha = 0.5
+        UIView.animateWithDuration(0.25,
+                                   delay: 0.0,
+                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.AllowUserInteraction],
+                                   animations: {
+                                    pile.image = UIImage(named: "\(self.newDeck.mainPileDeck.last!).png")
+                                    pile.alpha = 1.0
+            },
+                                   completion: nil)
+    }
+    
+    func animatePenalty(penalty: UILabel) {
+        penalty.alpha = 1.0
+        UIView.animateWithDuration(0.5) { () -> Void in
+            
+            penalty.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        }
+        
+        UIView.animateWithDuration(0.5, delay: 0.25, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            
+            penalty.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 2))
+            }, completion: nil)
+        UIView.animateWithDuration(2) { () -> Void in
+            
+            penalty.transform = CGAffineTransformMakeRotation(CGFloat(0))
+            penalty.alpha = 0.0
+        }
+        
+        UIView.animateWithDuration(0.25 ,
+                                   animations: {
+                                    penalty.transform = CGAffineTransformMakeScale(2, 2)
+            },
+                                   completion: { finish in
+                                    UIView.animateWithDuration(0.25){
+                                        penalty.transform = CGAffineTransformIdentity
+                                    }
+        })
     }
     
     func p2JackSwipe() {
@@ -125,8 +185,9 @@ class PlayViewController: UIViewController {
                 //            print(newDeck.mainPile)
                 if (!newDeck.drawCard("1")) {
                     playerOneCardCount.text = String(newDeck.playerOneDeck.count)
-                    pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
-                    pileOfCards.alpha = 1.0
+                    animatePile(pileOfCards)
+                    animatePenalty(penaltyLabel)
+                    animateBigRedX(redXImageView)
                     pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
                     
                     
@@ -148,8 +209,7 @@ class PlayViewController: UIViewController {
             print("i just swiped a card into the deck from player two's hand")
             if (!newDeck.drawCard("2")) {
                 playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
-                pileOfCards.image = UIImage(named: "\(newDeck.mainPileDeck.last!).png")
-                pileOfCards.alpha = 1.0
+                animatePile(pileOfCards)
                 pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
                 isPlayerOneTurn = "1"
                 
