@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vek-0c-Agc">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="Nob-9F-sBU">
+            <objects>
+                <viewController id="vek-0c-Agc" customClass="HomeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V2C-MZ-0Ms"/>
+                        <viewControllerLayoutGuide type="bottom" id="eoc-0O-eot"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GdS-SH-UfA" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="hmc-Gq-V5e" userLabel="pileOfCards">
+                                <rect key="frame" x="138" y="260" width="98" height="147"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="147" id="7TM-H6-uUz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="98" id="8nb-6J-kUN"/>
+                                    <constraint firstAttribute="width" constant="98" id="OST-f5-DgN"/>
+                                    <constraint firstAttribute="height" constant="147" id="mLK-zp-ITD"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dST-VO-83N">
+                                <rect key="frame" x="138" y="260" width="98" height="147"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="NpT-qu-K3S"/>
+                                    <constraint firstAttribute="width" constant="98" id="PKl-Hq-S7t"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="98" id="cag-lo-BYn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="147" id="dMj-jS-DdI"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cag-lo-BYn"/>
+                                        <exclude reference="dMj-jS-DdI"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="F06-lT-HZR" kind="show" identifier="showPlay" id="0fs-o1-bus"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="PpC-UK-vRF" userLabel="Hand Image">
+                                <rect key="frame" x="80" y="235" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="91R-9m-hR2"/>
+                                    <constraint firstAttribute="width" constant="50" id="C7L-1V-32c"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRC-6C-K8b">
+                                <rect key="frame" x="123" y="28" width="129" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="Mcr-tk-KKN"/>
+                                    <constraint firstAttribute="height" constant="21" id="PWp-co-cwd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe To Begin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnt-kM-aQt">
+                                <rect key="frame" x="129" y="431" width="118" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5Om-sw-brc"/>
+                                    <constraint firstAttribute="width" constant="118" id="jha-qd-EpU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dST-VO-83N" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="AJj-5f-B9G"/>
+                            <constraint firstItem="PpC-UK-vRF" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="Cn1-90-jCT"/>
+                            <constraint firstItem="Vnt-kM-aQt" firstAttribute="top" secondItem="dST-VO-83N" secondAttribute="bottom" constant="24" id="DeQ-dI-X32"/>
+                            <constraint firstItem="Vnt-kM-aQt" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="EQs-Ym-Y9n"/>
+                            <constraint firstItem="PRC-6C-K8b" firstAttribute="top" secondItem="V2C-MZ-0Ms" secondAttribute="bottom" constant="8" id="GLs-rX-Elv"/>
+                            <constraint firstItem="dST-VO-83N" firstAttribute="top" secondItem="PpC-UK-vRF" secondAttribute="bottom" constant="-25" id="LrD-GX-Ou3"/>
+                            <constraint firstItem="dST-VO-83N" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="USP-rn-MDj"/>
+                            <constraint firstItem="hmc-Gq-V5e" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="fqI-Be-v8w"/>
+                            <constraint firstItem="PRC-6C-K8b" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="tBf-vb-Xzv"/>
+                            <constraint firstItem="hmc-Gq-V5e" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="wVw-sH-xdK"/>
+                            <constraint firstItem="dST-VO-83N" firstAttribute="leading" secondItem="PpC-UK-vRF" secondAttribute="trailing" constant="8" id="wjq-9m-Tne"/>
+                            <constraint firstItem="PpC-UK-vRF" firstAttribute="top" secondItem="dST-VO-83N" secondAttribute="bottom" constant="-100" id="yEe-3T-hq1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Cn1-90-jCT"/>
+                                <exclude reference="yEe-3T-hq1"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="handImage" destination="PpC-UK-vRF" id="kbI-zm-2FR"/>
+                        <outlet property="instructionLabel" destination="Vnt-kM-aQt" id="rFu-R5-VLr"/>
+                        <outlet property="playGameDeckSwipe" destination="dST-VO-83N" id="sWl-53-p9Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Jt-K3-cVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="309.5" y="212.5"/>
+        </scene>
+        <!--Play-->
+        <scene sceneID="Z4J-6G-aTZ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Play" storyboardName="Play" id="F06-lT-HZR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Zq-e6-f3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686.5" y="198"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cardBack" width="488" height="679"/>
+        <image name="hand" width="299" height="405"/>
+    </resources>
+</document>

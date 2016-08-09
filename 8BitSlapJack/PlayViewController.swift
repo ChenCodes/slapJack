@@ -37,6 +37,7 @@ class PlayViewController: UIViewController {
         
         newGame()
         animateSelectedDeck(deck: self.playerOneDeckView)
+        self.playerOneDeckView.alpha = 1.0
     }
     
     func invertPlayerTwoSide() {
