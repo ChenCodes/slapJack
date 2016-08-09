@@ -82,11 +82,25 @@ class PlayViewController: UIViewController {
     }
     
     func p2JackSwipe() {
-        print("P2 Swipe back")
+        if newDeck.mainPileDeck.count != 0 {
+            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
+            if prefix == "Jack" {
+                newDeck.wonPile("2")
+                playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
+                cleanTheDeck()
+            }
+        }
     }
     
     func p1JackSwipe() {
-        print("P1 Swipe back")
+        if newDeck.mainPileDeck.count != 0 {
+            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
+            if prefix == "Jack" {
+                newDeck.wonPile("1")
+                playerOneCardCount.text = String(newDeck.playerOneDeck.count)
+                cleanTheDeck()
+            }
+        }
     }
     
     func newGame() {
@@ -127,8 +141,7 @@ class PlayViewController: UIViewController {
             }
         }
     }
-    
-    //Player two swipe action
+
     func p2DeckSwipe() {
         if isPlayerOneTurn == "2" {
             print("i just swiped a card into the deck from player two's hand")
@@ -145,30 +158,6 @@ class PlayViewController: UIViewController {
                 
             } else {
                 newGame()
-            }
-        }
-    }
-    
-    @IBAction func playerOneSlap(sender: AnyObject) {
-        if newDeck.mainPileDeck.count != 0 {
-            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
-            if prefix == "Jack" {
-                newDeck.wonPile("1")
-                playerOneCardCount.text = String(newDeck.playerOneDeck.count)
-                cleanTheDeck()
-            }
-        }
-    }
-    
-    
-    @IBAction func playerTwoSlap(sender: AnyObject) {
-        print("player two slapped a jack supposedly")
-        if newDeck.mainPileDeck.count != 0 {
-            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
-            if prefix == "Jack" {
-                newDeck.wonPile("2")
-                playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
-                cleanTheDeck()
             }
         }
     }

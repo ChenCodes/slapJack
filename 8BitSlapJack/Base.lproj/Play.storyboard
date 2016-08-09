@@ -102,9 +102,6 @@
                                         <exclude reference="iUn-Y9-Qgm"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="playerOneSlap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIw-k0-pnG"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWV-NQ-zeG">
                                 <rect key="frame" x="5" y="93" width="88" height="21"/>
@@ -150,18 +147,14 @@
                                     <constraint firstAttribute="height" constant="155" id="4eA-0N-ADT"/>
                                     <constraint firstAttribute="width" constant="120" id="Fap-FZ-M9K"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="playerTwoSlap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q3P-28-HbO"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="629-bN-oVN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="629-bN-oVN">
                                 <rect key="frame" x="138" y="260" width="98" height="147"/>
-                                <color key="backgroundColor" red="0.42760605259281492" green="1" blue="0.57909995615595733" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="147" id="2RY-Dy-uow"/>
                                     <constraint firstAttribute="width" constant="98" id="PC9-dR-spT"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29435619109251798" green="0.39831912878787878" blue="0.27178159219522596" alpha="1" colorSpace="calibratedRGB"/>
