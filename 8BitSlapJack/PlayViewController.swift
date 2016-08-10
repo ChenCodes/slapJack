@@ -29,7 +29,7 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var redXImageView: UIImageView!
     
-    var newDeck = Deck()
+    var game = Deck()
     var isPlayerOneTurn = "1"
     
     override func viewDidLoad() {
@@ -108,7 +108,7 @@ class PlayViewController: UIViewController {
                                    delay: 0.0,
                                    options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.AllowUserInteraction],
                                    animations: {
-                                    pile.image = UIImage(named: "\(self.newDeck.mainPileDeck.last!).png")
+                                    pile.image = UIImage(named: "\(self.game.mainPileDeck.last!).png")
                                     pile.alpha = 1.0
             },
                                    completion: nil)
@@ -143,52 +143,50 @@ class PlayViewController: UIViewController {
     }
     
     func p2JackSwipe() {
-        if newDeck.mainPileDeck.count != 0 {
-            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
+        if game.mainPileDeck.count != 0 {
+            let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
             if prefix == "Jack" {
-                newDeck.wonPile("2")
-                playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
+                game.winningPlayer(false)
+                playerTwoCardCount.text = String(game.playerTwoDeck.count)
                 cleanTheDeck()
             }
         }
     }
     
     func p1JackSwipe() {
-        if newDeck.mainPileDeck.count != 0 {
-            let prefix = String(newDeck.mainPileDeck.last!.characters.prefix(4))
+        if game.mainPileDeck.count != 0 {
+            let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
             if prefix == "Jack" {
-                newDeck.wonPile("1")
-                playerOneCardCount.text = String(newDeck.playerOneDeck.count)
+                game.winningPlayer(true)
+                playerOneCardCount.text = String(game.playerOneDeck.count)
                 cleanTheDeck()
             }
         }
     }
     
     func newGame() {
-        newDeck = Deck()
-        newDeck.shuffleArray()
-        newDeck.giveCards()
-        
-        playerOneCardCount.text = String(newDeck.playerOneDeck.count)
-        playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
+        game = Deck()
+        game.shuffleArray()
+        game.giveCards()
+        playerOneCardCount.text = String(game.playerOneDeck.count)
+        playerTwoCardCount.text = String(game.playerTwoDeck.count)
     }
     
 
     func p1DeckSwipe() {
         if isPlayerOneTurn == "1" {
-            
             if playerOneCardCount == 0 {
                 print("game is over!")
                 newGame()
             } else {
                 print("i just swiped a card into the deck from player one's hand")
-                //            print(newDeck.mainPile)
-                if (!newDeck.drawCard("1")) {
-                    playerOneCardCount.text = String(newDeck.playerOneDeck.count)
+                //            print(game.mainPile)
+                if (!game.drawCard(true)) {
+                    playerOneCardCount.text = String(game.playerOneDeck.count)
                     animatePile(pileOfCards)
                     animatePenalty(penaltyLabel)
                     animateBigRedX(redXImageView)
-                    pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
+                    pileOfCardsCount.text = String(game.mainPileDeck.count)
                     
                     
                     isPlayerOneTurn = "2"
@@ -207,10 +205,10 @@ class PlayViewController: UIViewController {
     func p2DeckSwipe() {
         if isPlayerOneTurn == "2" {
             print("i just swiped a card into the deck from player two's hand")
-            if (!newDeck.drawCard("2")) {
-                playerTwoCardCount.text = String(newDeck.playerTwoDeck.count)
+            if (!game.drawCard(false)) {
+                playerTwoCardCount.text = String(game.playerTwoDeck.count)
                 animatePile(pileOfCards)
-                pileOfCardsCount.text = String(newDeck.mainPileDeck.count)
+                pileOfCardsCount.text = String(game.mainPileDeck.count)
                 isPlayerOneTurn = "1"
                 
                 animateSelectedDeck(deck: self.playerOneDeckView)

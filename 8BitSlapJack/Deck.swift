@@ -52,10 +52,10 @@ class Deck {
         }
     }
     
-    func drawCard(turn: String) -> Bool {
+    func drawCard(playerOneTurn: Bool) -> Bool {
         //The idea here is to remove
-        print("my turn is: ", turn)
-        if turn == "1" && playerOneDeck.count == 0 {
+        
+        if playerOneTurn && playerOneDeck.count == 0 {
             
             let alert = UIAlertView()
             alert.title = "Congratulations!"
@@ -64,7 +64,7 @@ class Deck {
             alert.show()
             return true
             
-        } else if turn == "2" && playerTwoDeck.count == 0 {
+        } else if !playerOneTurn && playerTwoDeck.count == 0 {
             let alert = UIAlertView()
             alert.title = "Congratulations!"
             alert.message = "Player One Wins."
@@ -73,7 +73,7 @@ class Deck {
             return true
             
         } else {
-            if turn == "1" {
+            if playerOneTurn {
                 mainPileDeck.append(playerOneDeck.removeFirst())
             } else {
                 mainPileDeck.append(playerTwoDeck.removeFirst())
@@ -83,8 +83,8 @@ class Deck {
         }
     }
     
-    func wonPile(player: String) {
-        if player == "1" {
+    func winningPlayer(isPlayerOne: Bool) {
+        if isPlayerOne {
             print("gave stuff to player 1")
             playerOneDeck += mainPileDeck
             mainPileDeck = []
