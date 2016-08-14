@@ -37,11 +37,19 @@ class Deck {
     }
     
     
+    /*
+      - Self explanatory, prints the deck.
+    */
+    
     func printDeck() {
         print(deck)
     }
     
-    //Distributes cards to player one and player two, determined by even/odd index
+    /*
+        Information: Distributes cards to player one and player two, determined by even/odd index.
+        Each player will end up with 26 cards.
+     
+     */
     func giveCards() {
         for i in 0...51 {
             if i % 2 == 0 {
@@ -52,6 +60,12 @@ class Deck {
         }
     }
     
+    
+    /**
+     - parameters:
+        - playerOneTurn: Will either be true or false, depending on if the current turn is player One's turn.
+     - returns: Returns true when a card has successfully been drawn.
+    */
     func drawCard(playerOneTurn: Bool) -> Bool {
         //The idea here is to remove
         
@@ -83,6 +97,14 @@ class Deck {
         }
     }
     
+    
+    
+    /**
+     This method is called when a player slaps the jack in the pile first.
+ 
+     - parameters:
+        - isPlayerOne: Value will be true if player One was the one that slapped first.
+     */
     func winningPlayer(isPlayerOne: Bool) {
         if isPlayerOne {
             print("gave stuff to player 1")
@@ -96,7 +118,10 @@ class Deck {
     }
     
     
-    //Shuffles the array of cards in the deck
+    /**
+     Shuffles the array of cards in the deck.
+     */
+    
     func shuffleArray() {
         var tempArray = deck
         for index in 0...deck.count - 1 {
@@ -106,14 +131,6 @@ class Deck {
         }
         deck = tempArray
     }
-
-    
-    
-    
-    
-    
-    
-    
 }
 
 
