@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0584CB0F1D6022D400AED275 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584CB0E1D6022D400AED275 /* Animations.swift */; };
 		0589F6D31D5970BE00A48AC8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0589F6D21D5970BE00A48AC8 /* Home.storyboard */; };
 		0589F6D51D59742D00A48AC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0589F6D41D59742D00A48AC8 /* HomeViewController.swift */; };
 		431659F01D2EC09300F75228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431659EF1D2EC09300F75228 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0584CB0E1D6022D400AED275 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		0589F6D21D5970BE00A48AC8 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0589F6D41D59742D00A48AC8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		431659EC1D2EC09300F75228 /* 8BitSlapJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 8BitSlapJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 		431659EE1D2EC09300F75228 /* 8BitSlapJack */ = {
 			isa = PBXGroup;
 			children = (
+				0584CB0E1D6022D400AED275 /* Animations.swift */,
 				431659EF1D2EC09300F75228 /* AppDelegate.swift */,
 				431659F11D2EC09300F75228 /* PlayViewController.swift */,
 				0589F6D21D5970BE00A48AC8 /* Home.storyboard */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				434DA5541D4EDE81006BB3EA /* Deck.swift in Sources */,
+				0584CB0F1D6022D400AED275 /* Animations.swift in Sources */,
 				431659F21D2EC09300F75228 /* PlayViewController.swift in Sources */,
 				431659F01D2EC09300F75228 /* AppDelegate.swift in Sources */,
 				0589F6D51D59742D00A48AC8 /* HomeViewController.swift in Sources */,

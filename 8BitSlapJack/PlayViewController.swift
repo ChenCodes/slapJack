@@ -22,11 +22,9 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var playerOneSwiped: UIButton!
     @IBOutlet weak var playerTwoSwiped: UIButton!
-    
     @IBOutlet weak var pileSwiped: UIButton!
     
     @IBOutlet weak var penaltyLabel: UILabel!
-    
     @IBOutlet weak var redXImageView: UIImageView!
     
     var game = Deck()
@@ -34,23 +32,16 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        invertPlayerTwoSide()
-        swipeControl()
-        
-        newGame()
-        animateSelectedDeck(deck: self.playerOneDeckView)
+        swipeControl(playerOneSwiped, playerTwoSwiped, pileSwiped)
+        Animations.invertP2(playerTwoCardCount, playerTwoTextLabel, playerTwoDeckImage)
+        Animations.animateSelectedDeck(self.playerOneDeckView)
         self.playerOneDeckView.alpha = 1.0
         self.redXImageView.alpha = 0.0
+        
+        newGame()
     }
     
-    func invertPlayerTwoSide() {
-        playerTwoCardCount.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        playerTwoTextLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        playerTwoDeckImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-    }
-    
-    func swipeControl() {
+    func swipeControl(p1SwipeButton: UIButton, _ p2SwipeButton: UIButton, _ deckSwipeButton: UIButton) {
         let swipeButtonUp = UISwipeGestureRecognizer(target: self, action: "p1DeckSwipe")
         let swipeButtonDown = UISwipeGestureRecognizer(target: self, action: "p2DeckSwipe")
         let pileSwipeUp = UISwipeGestureRecognizer(target: self, action: "p2JackSwipe")
@@ -60,88 +51,12 @@ class PlayViewController: UIViewController {
         pileSwipeUp.direction = UISwipeGestureRecognizerDirection.Up
         pileSwipeDown.direction = UISwipeGestureRecognizerDirection.Down
         
-        self.playerOneSwiped.addGestureRecognizer(swipeButtonUp)
-        self.playerTwoSwiped.addGestureRecognizer(swipeButtonDown)
-        self.pileSwiped.addGestureRecognizer(pileSwipeUp)
-        self.pileSwiped.addGestureRecognizer(pileSwipeDown)
+        p1SwipeButton.addGestureRecognizer(swipeButtonUp)
+        p2SwipeButton.addGestureRecognizer(swipeButtonDown)
+        deckSwipeButton.addGestureRecognizer(pileSwipeUp)
+        deckSwipeButton.addGestureRecognizer(pileSwipeDown)
     }
-    
-    func animateBigRedX(bigX: UIImageView) {
-        bigX.alpha = 0.5
-        UIView.animateWithDuration(0.2) { () -> Void in
-            
-            UIView.animateWithDuration(0.01,
-                                       delay: 0.0,
-                                       options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.Autoreverse],
-                                       animations: {
-                                        bigX.alpha = 1.0
-                },
-                                       completion: nil)
-        }
-        bigX.alpha = 0.0
-        
-    }
-    
-    func animateSelectedDeck(duration duration: NSTimeInterval = 1.0, deck: UIView) {
-        UIView.animateWithDuration(1,
-                                   delay: 0.0,
-                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
-                                   animations: {
-                                    deck.alpha = 0.0
-                                    },
-                                   completion: nil)
-    }
-    
-    func stopAnimatingSelectedDeck(duration duration: NSTimeInterval = 1.0, deck: UIView) {
-        UIView.animateWithDuration(1,
-                                   delay: 0.0,
-                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
-                                   animations: {
-                                    deck.alpha = 1.0
-                                    },
-                                   completion: nil)
-    }
-    
-    func animatePile(pile: UIImageView) {
-        pile.alpha = 0.5
-        UIView.animateWithDuration(0.25,
-                                   delay: 0.0,
-                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.AllowUserInteraction],
-                                   animations: {
-                                    pile.image = UIImage(named: "\(self.game.mainPileDeck.last!).png")
-                                    pile.alpha = 1.0
-            },
-                                   completion: nil)
-    }
-    
-    func animatePenalty(penalty: UILabel) {
-        penalty.alpha = 1.0
-        UIView.animateWithDuration(0.5) { () -> Void in
-            
-            penalty.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        }
-        
-        UIView.animateWithDuration(0.5, delay: 0.25, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            
-            penalty.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 2))
-            }, completion: nil)
-        UIView.animateWithDuration(2) { () -> Void in
-            
-            penalty.transform = CGAffineTransformMakeRotation(CGFloat(0))
-            penalty.alpha = 0.0
-        }
-        
-        UIView.animateWithDuration(0.25 ,
-                                   animations: {
-                                    penalty.transform = CGAffineTransformMakeScale(2, 2)
-            },
-                                   completion: { finish in
-                                    UIView.animateWithDuration(0.25){
-                                        penalty.transform = CGAffineTransformIdentity
-                                    }
-        })
-    }
-    
+
     func p2JackSwipe() {
         if game.mainPileDeck.count != 0 {
             let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
@@ -183,15 +98,15 @@ class PlayViewController: UIViewController {
                 //            print(game.mainPile)
                 if (!game.drawCard(true)) {
                     playerOneCardCount.text = String(game.playerOneDeck.count)
-                    animatePile(pileOfCards)
-                    animatePenalty(penaltyLabel)
-                    animateBigRedX(redXImageView)
+                    Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
+                    Animations.animatePenalty(penaltyLabel)
+                    Animations.animateBigRedX(redXImageView)
                     pileOfCardsCount.text = String(game.mainPileDeck.count)
                     
                     
                     isPlayerOneTurn = "2"
-                    animateSelectedDeck(deck: self.playerTwoDeckView)
-                    stopAnimatingSelectedDeck(deck: self.playerOneDeckView)
+                    Animations.animateSelectedDeck(self.playerTwoDeckView)
+                    Animations.stopAnimatingSelectedDeck(self.playerOneDeckView)
                     self.playerOneDeckView.layer.removeAllAnimations()
 
                     
@@ -207,12 +122,12 @@ class PlayViewController: UIViewController {
             print("i just swiped a card into the deck from player two's hand")
             if (!game.drawCard(false)) {
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)
-                animatePile(pileOfCards)
+                Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
                 pileOfCardsCount.text = String(game.mainPileDeck.count)
                 isPlayerOneTurn = "1"
                 
-                animateSelectedDeck(deck: self.playerOneDeckView)
-                stopAnimatingSelectedDeck(deck: self.playerTwoDeckView)
+                Animations.animateSelectedDeck(self.playerOneDeckView)
+                Animations.stopAnimatingSelectedDeck(self.playerTwoDeckView)
                 self.playerTwoDeckView.layer.removeAllAnimations()
                 
             } else {
