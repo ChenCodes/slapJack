@@ -2,14 +2,15 @@
 //  PlayViewController.swift
 //  8BitSlapJack
 //
-//  Created by Jack Chen on 7/7/16.
-//  Copyright © 2016 Jack Chen. All rights reserved.
+//  Copyright (c) 2016 StrCat. All rights reserved.
 //
 
 import UIKit
 
 class PlayViewController: UIViewController {
 
+    // TODO: General, take out all extraneous print statments and comments
+    
     @IBOutlet weak var playerOneCardCount: UILabel!
     @IBOutlet weak var playerTwoCardCount: UILabel!
     @IBOutlet weak var playerTwoTextLabel: UILabel!
@@ -28,6 +29,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var redXImageView: UIImageView!
     
     var game = Deck()
+    
+    // FIXME : This shouldn't be a string.  isPlayerOneTurn --> Bool
     var isPlayerOneTurn = "1"
     
     override func viewDidLoad() {
@@ -41,6 +44,7 @@ class PlayViewController: UIViewController {
         newGame()
     }
     
+    // TODO: Needs Markup
     func swipeControl(p1SwipeButton: UIButton, _ p2SwipeButton: UIButton, _ deckSwipeButton: UIButton) {
         let swipeButtonUp = UISwipeGestureRecognizer(target: self, action: "p1DeckSwipe")
         let swipeButtonDown = UISwipeGestureRecognizer(target: self, action: "p2DeckSwipe")
@@ -57,10 +61,13 @@ class PlayViewController: UIViewController {
         deckSwipeButton.addGestureRecognizer(pileSwipeDown)
     }
 
+    // TODO: Needs Markup
     func p2JackSwipe() {
         if game.mainPileDeck.count != 0 {
             let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
             if prefix == "Jack" {
+                
+                // TODO: This shouldnt be a hardcode false
                 game.winningPlayer(false)
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)
                 cleanTheDeck()
@@ -68,10 +75,13 @@ class PlayViewController: UIViewController {
         }
     }
     
+    // TODO: Needs Markup
     func p1JackSwipe() {
         if game.mainPileDeck.count != 0 {
             let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
             if prefix == "Jack" {
+                
+                // TODO: This shouldnt be a hardcode true
                 game.winningPlayer(true)
                 playerOneCardCount.text = String(game.playerOneDeck.count)
                 cleanTheDeck()
@@ -79,16 +89,19 @@ class PlayViewController: UIViewController {
         }
     }
     
+    // TODO: Needs Markup
     func newGame() {
         game = Deck()
-        game.shuffleArray()
+        game.shuffleDeck()
         game.giveCards()
         playerOneCardCount.text = String(game.playerOneDeck.count)
         playerTwoCardCount.text = String(game.playerTwoDeck.count)
     }
-    
 
+    // TODO: Needs Markup
     func p1DeckSwipe() {
+        
+        // TODO: This shoudln't be a String, should be a bool
         if isPlayerOneTurn == "1" {
             if playerOneCardCount == 0 {
                 print("game is over!")
@@ -96,7 +109,7 @@ class PlayViewController: UIViewController {
             } else {
                 print("i just swiped a card into the deck from player one's hand")
                 //            print(game.mainPile)
-                if (!game.drawCard(true)) {
+                if (!game.flipCard(true)) {
                     playerOneCardCount.text = String(game.playerOneDeck.count)
                     Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
                     Animations.animatePenalty(penaltyLabel)
@@ -117,10 +130,11 @@ class PlayViewController: UIViewController {
         }
     }
 
+    // TODO: Needs Markup
     func p2DeckSwipe() {
         if isPlayerOneTurn == "2" {
             print("i just swiped a card into the deck from player two's hand")
-            if (!game.drawCard(false)) {
+            if (!game.flipCard(false)) {
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)
                 Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
                 pileOfCardsCount.text = String(game.mainPileDeck.count)

@@ -2,8 +2,7 @@
 //  Deck.swift
 //  8BitSlapJack
 //
-//  Created by Jack Chen on 7/31/16.
-//  Copyright © 2016 Jack Chen. All rights reserved.
+//  Copyright (c) 2016 StrCat. All rights reserved.
 //
 
 import Darwin
@@ -12,42 +11,40 @@ import UIKit
 
 // Project Euler #1 Solution in Swift
 
+
 class Deck {
-    let suits:[String]
-    var ranks = [String]()
-    let totalCardCount = 52
-    var deck: [String] = []
+    let suits                  = ["Clubs", "Diamonds", "Hearts", "Spades"]
+    let ranks                  = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"]
+    let totalCardCount         = 52
+    var deck                   = [String]()
+    var playerOneDeck          = [String]()
+    var playerTwoDeck          = [String]()
+    var mainPileDeck           = [String]()
+
     
-    var playerOneDeck:[String] = []
-    var playerTwoDeck:[String] = []
-    var mainPileDeck: [String] = []
-    //Initialize our deck
-    //Bug I found: to declare array, need to do:
-    
+    /**
+     Initializing pile as a complete 52 card deck as a String Array.
+     - Note: format: "Two of Clubs"
+    */
     init() {
-        suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
-        ranks = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"]
         for i in 0...(ranks.count - 1) {
             for j in 0...(suits.count - 1) {
-                print(i)
-                print(j)
                 deck.append(ranks[i] + " of " + suits[j])
             }
         }
     }
     
     
-    /*
+    /**
       - Self explanatory, prints the deck.
     */
 
-    
     func printDeck() {
         print(deck)
     }
     
-    /*
-        Information: Distributes cards to player one and player two, determined by even/odd index.
+    /**
+        Distributes cards to player one and player two, determined by even/odd index.
         Each player will end up with 26 cards.
      */
     func giveCards() {
@@ -62,40 +59,50 @@ class Deck {
     
     
     /**
+     
      - parameters:
-        - playerOneTurn: Will either be true or false, depending on if the current turn is player One's turn.
+       - playerOneTurn: Will either be true or false, depending on if the current turn is player One's turn.
      - returns: Returns true when a card has successfully been drawn.
     */
 
-    func drawCard(playerOneTurn: Bool) -> Bool {
-        //The idea here is to remove
-        
-        if playerOneTurn && playerOneDeck.count == 0 {
-            
-            let alert = UIAlertView()
-            alert.title = "Congratulations!"
-            alert.message = "Player Two Wins."
-            alert.addButtonWithTitle("Done")
-            alert.show()
-            return true
-            
-        } else if !playerOneTurn && playerTwoDeck.count == 0 {
-            let alert = UIAlertView()
-            alert.title = "Congratulations!"
-            alert.message = "Player One Wins."
-            alert.addButtonWithTitle("Done")
-            alert.show()
-            return true
-            
-        } else {
-            if playerOneTurn {
-                mainPileDeck.append(playerOneDeck.removeFirst())
-            } else {
-                mainPileDeck.append(playerTwoDeck.removeFirst())
-            }
-            
-            return false
+    func flipCard(playerOneTurn: Bool) -> Bool {
+        guard playerOneDeck.count != 0 else {
+            return win(playerOneTurn)
         }
+        guard playerTwoDeck.count != 0 else {
+            return win(playerOneTurn)
+        }
+        
+        if playerOneTurn {
+            mainPileDeck.append(playerOneDeck.removeFirst())
+        } else {
+            mainPileDeck.append(playerTwoDeck.removeFirst())
+        }
+
+        return false
+
+    }
+    
+    
+    /**
+     Presents the Winning Alert.
+     - parameters:
+        - playerOneTurn: the winning player
+     - returns: Returns true that the game has completed
+     */
+    func win(playerOneTurn: Bool) -> Bool {
+        let alert = UIAlertView()
+        alert.title = "Congratulations!"
+        alert.addButtonWithTitle("Done")
+        
+        if playerOneTurn {
+            alert.message = "Player One Wins."
+        } else {
+            alert.message = "Player Two Wins."
+        }
+        
+        alert.show()
+        return true
     }
     
     
@@ -123,8 +130,7 @@ class Deck {
     /**
      Shuffles the array of cards in the deck.
      */
-    
-    func shuffleArray() {
+    func shuffleDeck() {
         var tempArray = deck
         for index in 0...deck.count - 1 {
             let randomNumber = arc4random_uniform(UInt32(deck.count - 1))

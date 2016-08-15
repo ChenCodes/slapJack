@@ -2,8 +2,7 @@
 //  _BitSlapJackTests.swift
 //  8BitSlapJackTests
 //
-//  Created by Jack Chen on 7/7/16.
-//  Copyright © 2016 Jack Chen. All rights reserved.
+//  Copyright (c) 2016 StrCat. All rights reserved.
 //
 
 import XCTest

@@ -2,8 +2,7 @@
 //  HomeViewController.swift
 //  8BitSlapJack
 //
-//  Created by Alex Takahashi on 8/8/16.
-//  Copyright © 2016 Jack Chen. All rights reserved.
+//  Copyright (c) 2016 StrCat. All rights reserved.
 //
 
 import UIKit
