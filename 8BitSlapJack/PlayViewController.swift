@@ -29,9 +29,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var redXImageView: UIImageView!
     
     var game = Deck()
-    
-    // FIXME : This shouldn't be a string.  isPlayerOneTurn --> Bool
-    var isPlayerOneTurn = "1"
+    var isPlayerOneTurn = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +38,18 @@ class PlayViewController: UIViewController {
         Animations.animateSelectedDeck(self.playerOneDeckView)
         self.playerOneDeckView.alpha = 1.0
         self.redXImageView.alpha = 0.0
-        
         newGame()
     }
     
-    // TODO: Needs Markup
+    
+    /**
+     This button deals with swiping cards from player one and player two's decks into the main pile in the middle.
+     
+    - parameters:
+        - p1SwipeButton: This button detects gestures made on the player one's card back.
+        - p2SwipeButton: This button detects gestures made on the player two's card back.
+        - deckSwipeButton: This button detects gestures made on the pile in the middle.
+     */
     func swipeControl(p1SwipeButton: UIButton, _ p2SwipeButton: UIButton, _ deckSwipeButton: UIButton) {
         let swipeButtonUp = UISwipeGestureRecognizer(target: self, action: "p1DeckSwipe")
         let swipeButtonDown = UISwipeGestureRecognizer(target: self, action: "p2DeckSwipe")
@@ -61,35 +66,45 @@ class PlayViewController: UIViewController {
         deckSwipeButton.addGestureRecognizer(pileSwipeDown)
     }
 
-    // TODO: Needs Markup
-    func p2JackSwipe() {
-        if game.mainPileDeck.count != 0 {
-            let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
-            if prefix == "Jack" {
-                
-                // TODO: This shouldnt be a hardcode false
-                game.winningPlayer(false)
-                playerTwoCardCount.text = String(game.playerTwoDeck.count)
-                cleanTheDeck()
-            }
-        }
-    }
     
-    // TODO: Needs Markup
+    
+    /**
+     This method checks to see if that the swipe was on a "Jack" card. If it was on a "Jack" card, then player one will obtain the cards in the main pile.
+     */
     func p1JackSwipe() {
         if game.mainPileDeck.count != 0 {
             let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
             if prefix == "Jack" {
-                
+                let isPlayerOne = true
                 // TODO: This shouldnt be a hardcode true
-                game.winningPlayer(true)
+                game.winningPlayer(isPlayerOne)
                 playerOneCardCount.text = String(game.playerOneDeck.count)
                 cleanTheDeck()
             }
         }
     }
     
-    // TODO: Needs Markup
+    
+    /**
+     This method checks to see if that the swipe was on a "Jack" card. If it was on a "Jack" card, then player two will obtain the cards in the main pile.
+    */
+    func p2JackSwipe() {
+        if game.mainPileDeck.count != 0 {
+            let prefix = String(game.mainPileDeck.last!.characters.prefix(4))
+            if prefix == "Jack" {
+                let isPlayerOne = false
+                game.winningPlayer(isPlayerOne)
+                playerTwoCardCount.text = String(game.playerTwoDeck.count)
+                cleanTheDeck()
+            }
+        }
+    }
+    
+    
+    /**
+     This method instantiates a Deck object. Then, it shuffles the deck object of 52 cards and then dipenses the cards evenly between two players. Finally, it shows the number of cards present in each player's deck.
+    */
+    
     func newGame() {
         game = Deck()
         game.shuffleDeck()
@@ -98,17 +113,22 @@ class PlayViewController: UIViewController {
         playerTwoCardCount.text = String(game.playerTwoDeck.count)
     }
 
-    // TODO: Needs Markup
+    
+    
+    /**
+     First, this method checks to see if player one swiped when they have no cards. If they have no cards, then the game is over and the newGame method is called.
+     
+     If the player tries to swipe their hand into the main pile and is unable to do so, then there will be a red animation that is played on the main pile.
+ 
+    */
+    
     func p1DeckSwipe() {
-        
-        // TODO: This shoudln't be a String, should be a bool
-        if isPlayerOneTurn == "1" {
+        if isPlayerOneTurn {
             if playerOneCardCount == 0 {
                 print("game is over!")
                 newGame()
             } else {
                 print("i just swiped a card into the deck from player one's hand")
-                //            print(game.mainPile)
                 if (!game.flipCard(true)) {
                     playerOneCardCount.text = String(game.playerOneDeck.count)
                     Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
@@ -117,7 +137,7 @@ class PlayViewController: UIViewController {
                     pileOfCardsCount.text = String(game.mainPileDeck.count)
                     
                     
-                    isPlayerOneTurn = "2"
+                    isPlayerOneTurn = false
                     Animations.animateSelectedDeck(self.playerTwoDeckView)
                     Animations.stopAnimatingSelectedDeck(self.playerOneDeckView)
                     self.playerOneDeckView.layer.removeAllAnimations()
@@ -130,15 +150,20 @@ class PlayViewController: UIViewController {
         }
     }
 
-    // TODO: Needs Markup
+    /**
+     First, this method checks to see if player two swiped when they have no cards. If they have no cards, then the game is over and the newGame method is called.
+     
+     If the player tries to swipe their hand into the main pile and is unable to do so, then there will be a red animation that is played on the main pile.
+     
+     */
     func p2DeckSwipe() {
-        if isPlayerOneTurn == "2" {
+        if !isPlayerOneTurn  {
             print("i just swiped a card into the deck from player two's hand")
             if (!game.flipCard(false)) {
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)
                 Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
                 pileOfCardsCount.text = String(game.mainPileDeck.count)
-                isPlayerOneTurn = "1"
+                isPlayerOneTurn = true
                 
                 Animations.animateSelectedDeck(self.playerOneDeckView)
                 Animations.stopAnimatingSelectedDeck(self.playerTwoDeckView)
@@ -149,6 +174,8 @@ class PlayViewController: UIViewController {
             }
         }
     }
+    
+    
     
     func cleanTheDeck() {
         pileOfCards.image = UIImage(named: "cardBack.png")
