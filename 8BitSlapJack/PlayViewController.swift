@@ -104,7 +104,6 @@ class PlayViewController: UIViewController {
     /**
      This method instantiates a Deck object. Then, it shuffles the deck object of 52 cards and then dipenses the cards evenly between two players. Finally, it shows the number of cards present in each player's deck.
     */
-    
     func newGame() {
         game = Deck()
         game.shuffleDeck()
@@ -113,13 +112,9 @@ class PlayViewController: UIViewController {
         playerTwoCardCount.text = String(game.playerTwoDeck.count)
     }
 
-    
-    
     /**
      First, this method checks to see if player one swiped when they have no cards. If they have no cards, then the game is over and the newGame method is called.
-     
      If the player tries to swipe their hand into the main pile and is unable to do so, then there will be a red animation that is played on the main pile.
- 
     */
     
     func p1DeckSwipe() {
@@ -129,7 +124,10 @@ class PlayViewController: UIViewController {
                 newGame()
             } else {
                 print("i just swiped a card into the deck from player one's hand")
-                if (!game.flipCard(true)) {
+                
+                let successFlip = game.flipCard(true)
+                
+                if (!successFlip) {
                     playerOneCardCount.text = String(game.playerOneDeck.count)
                     Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
                     Animations.animatePenalty(penaltyLabel)
@@ -142,7 +140,6 @@ class PlayViewController: UIViewController {
                     Animations.stopAnimatingSelectedDeck(self.playerOneDeckView)
                     self.playerOneDeckView.layer.removeAllAnimations()
 
-                    
                 } else {
                     newGame()
                 }
@@ -159,7 +156,10 @@ class PlayViewController: UIViewController {
     func p2DeckSwipe() {
         if !isPlayerOneTurn  {
             print("i just swiped a card into the deck from player two's hand")
-            if (!game.flipCard(false)) {
+            
+            let successFlip = game.flipCard(false)
+            
+            if (!successFlip) {
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)
                 Animations.showNextCardOnPile(pileOfCards, withCardName: self.game.mainPileDeck.last!)
                 pileOfCardsCount.text = String(game.mainPileDeck.count)
