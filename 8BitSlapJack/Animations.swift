@@ -14,7 +14,7 @@ class Animations {
         
         p2CardCount.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         p2TextLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        p2TextLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        p2DeckImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
     }
 
     static func animateSelectedDeck(deck: UIView, withduration duration: NSTimeInterval = 1.0) {
