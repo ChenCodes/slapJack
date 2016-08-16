@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="visitor1.ttf">
+            <string>VisitorTT1BRK</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="Nob-9F-sBU">
@@ -58,7 +63,7 @@
                                     <constraint firstAttribute="height" constant="21" id="5Om-sw-brc"/>
                                     <constraint firstAttribute="width" constant="118" id="jha-qd-EpU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="VisitorTT1BRK" family="Visitor TT1 BRK" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

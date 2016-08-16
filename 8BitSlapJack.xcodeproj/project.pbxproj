@@ -17,6 +17,7 @@
 		431659FA1D2EC09400F75228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431659F81D2EC09400F75228 /* LaunchScreen.storyboard */; };
 		43165A051D2EC09400F75228 /* _BitSlapJackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43165A041D2EC09400F75228 /* _BitSlapJackTests.swift */; };
 		43165A101D2EC09500F75228 /* _BitSlapJackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43165A0F1D2EC09500F75228 /* _BitSlapJackUITests.swift */; };
+		4328C13B1D63DA4B00138C3A /* visitor1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4328C13A1D63DA4B00138C3A /* visitor1.ttf */; };
 		434DA5541D4EDE81006BB3EA /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434DA5531D4EDE81006BB3EA /* Deck.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		43165A0B1D2EC09500F75228 /* 8BitSlapJackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 8BitSlapJackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43165A0F1D2EC09500F75228 /* _BitSlapJackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BitSlapJackUITests.swift; sourceTree = "<group>"; };
 		43165A111D2EC09500F75228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4328C13A1D63DA4B00138C3A /* visitor1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = visitor1.ttf; sourceTree = "<group>"; };
 		434DA5531D4EDE81006BB3EA /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				431659F61D2EC09400F75228 /* Assets.xcassets */,
 				431659F81D2EC09400F75228 /* LaunchScreen.storyboard */,
 				431659FB1D2EC09400F75228 /* Info.plist */,
+				4328C13A1D63DA4B00138C3A /* visitor1.ttf */,
 			);
 			path = 8BitSlapJack;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4328C13B1D63DA4B00138C3A /* visitor1.ttf in Resources */,
 				431659FA1D2EC09400F75228 /* LaunchScreen.storyboard in Resources */,
 				431659F71D2EC09400F75228 /* Assets.xcassets in Resources */,
 				431659F51D2EC09400F75228 /* Play.storyboard in Resources */,
