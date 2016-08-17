@@ -98,5 +98,27 @@ class Animations {
                                     }
         })
     }
+
+    static func animateHand(duration duration: NSTimeInterval = 1.5, hand hand: UIView) {
+        UIView.animateWithDuration(duration,
+                                   delay: 1.0,
+                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.AllowUserInteraction],
+                                   animations: {
+                                    hand.alpha = 0.0
+                                    hand.center.y -= 150
+            },
+                                   completion: nil
+        )
+    }
+    
+    static func animateInstructions(duration duration: NSTimeInterval = 1.0, label: UILabel) {
+        UIView.animateWithDuration(1,
+                                   delay: 0.0,
+                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
+                                   animations: {
+                                    label.alpha = 0.0
+            },
+                                   completion: nil)
+    }
     
 }

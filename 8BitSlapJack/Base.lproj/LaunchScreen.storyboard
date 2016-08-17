@@ -17,17 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Wef-y5-klm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="strcatStudiosFinalLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Wef-y5-klm">
                                 <rect key="frame" x="67" y="187" width="240" height="293"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="OTa-cQ-DyA"/>
                                     <constraint firstAttribute="width" constant="240" id="RRe-bR-oax"/>
                                     <constraint firstAttribute="height" constant="293" id="dua-bu-Icd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="293" id="wWn-JT-ci3"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.72549019607843135" green="0.92156862745098034" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Wef-y5-klm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iLa-69-Q0h"/>
+                            <constraint firstItem="Wef-y5-klm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jbr-kt-M4U"/>
+                            <constraint firstItem="Wef-y5-klm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rfe-Fz-Hs2"/>
                             <constraint firstItem="Wef-y5-klm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uaT-rQ-dhO"/>
                         </constraints>
                     </view>
@@ -39,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchScreenLogo" width="488" height="679"/>
+        <image name="strcatStudiosFinalLogo" width="380" height="383"/>
     </resources>
 </document>

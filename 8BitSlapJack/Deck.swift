@@ -114,7 +114,7 @@ class Deck {
      - parameters:
         - isPlayerOne: Value will be true if player One was
      */
-    func winningPlayer(isPlayerOne: Bool) {
+    func addCardsToPlayersDeck(isPlayerOne: Bool) {
         if isPlayerOne {
             print("gave stuff to player 1")
             playerOneDeck += mainPileDeck
@@ -139,19 +139,16 @@ class Deck {
         }
         deck = tempArray
     }
+    
+    /**
+     Player tries to slap a jack too early.  The Player must burn their card.  Their top card is sent to the bottom of the deck and their score decrements by 1
+     - parameter isPlayer1: Bool whether or not player is Player 1
+     */
+    func burnCardFrom(isPlayer1: Bool) {
+        if isPlayer1 {
+            mainPileDeck.append(playerOneDeck.removeFirst())
+        } else {
+            mainPileDeck.append(playerTwoDeck.removeFirst())
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
