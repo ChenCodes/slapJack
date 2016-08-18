@@ -146,9 +146,9 @@ class Deck {
      */
     func burnCardFrom(isPlayer1: Bool) {
         if isPlayer1 {
-            mainPileDeck.append(playerOneDeck.removeFirst())
+            mainPileDeck.insert(playerOneDeck.removeFirst(), atIndex: 0)
         } else {
-            mainPileDeck.append(playerTwoDeck.removeFirst())
+            mainPileDeck.insert(playerTwoDeck.removeFirst(), atIndex: 0)
         }
     }
 }

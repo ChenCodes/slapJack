@@ -50,6 +50,8 @@ class PlayViewController: UIViewController {
         game.giveCards()
         playerOneCardCount.text = String(game.playerOneDeck.count)
         playerTwoCardCount.text = String(game.playerTwoDeck.count)
+        pileOfCards.image = UIImage(named: "none.png")
+        pileOfCardsCount.text = "0"
     }
 
     /**
@@ -126,9 +128,18 @@ class PlayViewController: UIViewController {
                 cleanTheDeck()
             } else {
                 game.burnCardFrom(isPlayerOne)
+                
                 Animations.animatePenalty(penaltyLabel)
                 Animations.animateBigRedX(redXImageView)
+                
                 playerOneCardCount.text = String(game.playerOneDeck.count)
+                pileOfCardsCount.text = String(game.mainPileDeck.count)
+                let isPlayerOneTurnNow = true
+                if game.playerOneDeck.count == 0 {
+                    game.win(!isPlayerOneTurn)
+                    newGame()
+                }
+                
             }
         }
     }
@@ -147,14 +158,26 @@ class PlayViewController: UIViewController {
                 cleanTheDeck()
             } else {
                 game.burnCardFrom(isPlayerOne)
+                Animations.animatePenalty(penaltyLabel)
+                Animations.animateBigRedX(redXImageView)
+                
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)
+                pileOfCardsCount.text = String(game.mainPileDeck.count)
+                let isPlayerOneTurnNow = false
+                if game.playerTwoDeck.count == 0 {
+                    game.win(!isPlayerOneTurnNow)
+                    newGame()
+                }
+                
+                
+                
             }
         }
     }
     
     
     func cleanTheDeck() {
-        pileOfCards.image = UIImage(named: "cardBack.png")
+        pileOfCards.image = UIImage(named: "none.png")
         pileOfCards.alpha = 0.5
         pileOfCardsCount.text = "0"
     }
