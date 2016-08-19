@@ -54,16 +54,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "8BitSlapJack/HomeViewController.swift"
-            timestampString = "492404245.879924"
+            filePath = "8BitSlapJack/TutorialJackSwipeViewController.swift"
+            timestampString = "493312671.121834"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

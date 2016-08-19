@@ -101,7 +101,7 @@ class Animations {
 
     static func animateHand(duration duration: NSTimeInterval = 1.5, hand hand: UIView) {
         UIView.animateWithDuration(duration,
-                                   delay: 1.0,
+                                   delay: 0.0,
                                    options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.AllowUserInteraction],
                                    animations: {
                                     hand.alpha = 0.0

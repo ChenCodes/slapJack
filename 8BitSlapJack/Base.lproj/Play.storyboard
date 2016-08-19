@@ -165,12 +165,6 @@
                                     <constraint firstAttribute="width" constant="98" id="PC9-dR-spT"/>
                                 </constraints>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQZ-dr-LnT">
-                                <rect key="frame" x="291" y="492" width="55" height="59"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="1" green="0.01275507046" blue="0.030845615980000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AR7-Og-xeW">
                                 <rect key="frame" x="162" y="309" width="50" height="50"/>
                                 <constraints>
@@ -209,7 +203,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="penaltyLabel" destination="jQZ-dr-LnT" id="czF-H2-ibg"/>
                         <outlet property="pileOfCards" destination="Aa8-Wo-Pjk" id="eWq-5Q-cSf"/>
                         <outlet property="pileOfCardsCount" destination="0Bt-Wm-uc2" id="uJG-93-NSe"/>
                         <outlet property="pileSwiped" destination="629-bN-oVN" id="cu2-Je-hvV"/>
