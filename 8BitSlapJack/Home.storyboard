@@ -95,7 +95,7 @@
                                     <segue destination="Svk-GO-7C5" kind="show" id="0ME-9P-GGc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpButton (3)" translatesAutoresizingMaskIntoConstraints="NO" id="zru-6s-Tcf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twoPlayers" translatesAutoresizingMaskIntoConstraints="NO" id="zru-6s-Tcf">
                                 <rect key="frame" x="119" y="164" width="137" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="6iP-6R-Q9G"/>
@@ -168,5 +168,6 @@
         <image name="helpButton (3)" width="571" height="250"/>
         <image name="moreInfo" width="370" height="493"/>
         <image name="textLogo" width="315" height="231"/>
+        <image name="twoPlayers" width="598" height="120"/>
     </resources>
 </document>
