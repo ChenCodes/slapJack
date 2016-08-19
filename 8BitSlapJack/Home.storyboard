@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="visitor1.ttf">
@@ -13,7 +14,7 @@
         <!--Home View Controller-->
         <scene sceneID="Nob-9F-sBU">
             <objects>
-                <viewController storyboardIdentifier="homePageController" id="vek-0c-Agc" customClass="HomeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="vek-0c-Agc" customClass="HomeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V2C-MZ-0Ms"/>
                         <viewControllerLayoutGuide type="bottom" id="eoc-0O-eot"/>
@@ -25,8 +26,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="hmc-Gq-V5e" userLabel="pileOfCards">
                                 <rect key="frame" x="138" y="260" width="98" height="147"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="147" id="7TM-H6-uUz"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="98" id="8nb-6J-kUN"/>
                                     <constraint firstAttribute="width" constant="98" id="OST-f5-DgN"/>
                                     <constraint firstAttribute="height" constant="147" id="mLK-zp-ITD"/>
                                 </constraints>
@@ -51,7 +50,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="PpC-UK-vRF" userLabel="Hand Image">
-                                <rect key="frame" x="80" y="235" width="50" height="50"/>
+                                <rect key="frame" x="80" y="360" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="91R-9m-hR2"/>
                                     <constraint firstAttribute="width" constant="50" id="C7L-1V-32c"/>
@@ -74,17 +73,53 @@
                                     <constraint firstAttribute="height" constant="128" id="zRJ-SC-iqu"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0m-g7-tsx">
+                                <rect key="frame" x="313" y="611" width="46" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="3OQ-NI-cMN"/>
+                                    <constraint firstAttribute="height" constant="48" id="rPa-0P-Hd8"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="moreInfo"/>
+                                <connections>
+                                    <action selector="goToBrowser:" destination="vek-0c-Agc" eventType="touchUpInside" id="ap2-Wg-EcO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW6-Jf-cVW">
+                                <rect key="frame" x="1" y="617" width="68" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fLJ-AD-dCY"/>
+                                    <constraint firstAttribute="width" constant="68" id="s6m-ZA-knQ"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="helpButton (3)"/>
+                                <connections>
+                                    <segue destination="Svk-GO-7C5" kind="show" id="0ME-9P-GGc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpButton (3)" translatesAutoresizingMaskIntoConstraints="NO" id="zru-6s-Tcf">
+                                <rect key="frame" x="119" y="164" width="137" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="6iP-6R-Q9G"/>
+                                    <constraint firstAttribute="height" constant="30" id="ATV-OC-RGt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.72549019609999998" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="JW6-Jf-cVW" firstAttribute="leading" secondItem="GdS-SH-UfA" secondAttribute="leadingMargin" constant="-15" id="6Mj-HW-XOP"/>
                             <constraint firstItem="dST-VO-83N" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="AJj-5f-B9G"/>
+                            <constraint firstItem="o0m-g7-tsx" firstAttribute="trailing" secondItem="GdS-SH-UfA" secondAttribute="trailingMargin" id="B0X-gv-RU2"/>
                             <constraint firstItem="PpC-UK-vRF" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="Cn1-90-jCT"/>
                             <constraint firstItem="Vnt-kM-aQt" firstAttribute="top" secondItem="dST-VO-83N" secondAttribute="bottom" constant="24" id="DeQ-dI-X32"/>
                             <constraint firstItem="Vnt-kM-aQt" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="EQs-Ym-Y9n"/>
-                            <constraint firstItem="dST-VO-83N" firstAttribute="top" secondItem="PpC-UK-vRF" secondAttribute="bottom" constant="-25" id="LrD-GX-Ou3"/>
+                            <constraint firstItem="zru-6s-Tcf" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="LMw-vB-vlv"/>
+                            <constraint firstItem="dST-VO-83N" firstAttribute="top" secondItem="PpC-UK-vRF" secondAttribute="bottom" constant="-150" id="LrD-GX-Ou3"/>
+                            <constraint firstItem="zru-6s-Tcf" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="RYO-Bg-UmX"/>
                             <constraint firstItem="dST-VO-83N" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="USP-rn-MDj"/>
                             <constraint firstItem="hmc-Gq-V5e" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="fqI-Be-v8w"/>
                             <constraint firstItem="KXG-N3-xNU" firstAttribute="top" secondItem="V2C-MZ-0Ms" secondAttribute="bottom" constant="8" id="mXd-7n-FET"/>
+                            <constraint firstItem="eoc-0O-eot" firstAttribute="top" secondItem="JW6-Jf-cVW" secondAttribute="bottom" constant="10" id="p8D-NY-45Z"/>
+                            <constraint firstItem="zru-6s-Tcf" firstAttribute="top" secondItem="KXG-N3-xNU" secondAttribute="bottom" constant="8" id="qQc-iK-4Kz"/>
+                            <constraint firstItem="eoc-0O-eot" firstAttribute="top" secondItem="o0m-g7-tsx" secondAttribute="bottom" constant="8" id="tGQ-9C-Xfr"/>
                             <constraint firstItem="hmc-Gq-V5e" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="wVw-sH-xdK"/>
                             <constraint firstItem="dST-VO-83N" firstAttribute="leading" secondItem="PpC-UK-vRF" secondAttribute="trailing" constant="8" id="wjq-9m-Tne"/>
                             <constraint firstItem="PpC-UK-vRF" firstAttribute="top" secondItem="dST-VO-83N" secondAttribute="bottom" constant="-100" id="yEe-3T-hq1"/>
@@ -92,6 +127,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="RYO-Bg-UmX"/>
                                 <exclude reference="Cn1-90-jCT"/>
                                 <exclude reference="yEe-3T-hq1"/>
                             </mask>
@@ -101,6 +137,7 @@
                     <connections>
                         <outlet property="handImage" destination="PpC-UK-vRF" id="kbI-zm-2FR"/>
                         <outlet property="instructionLabel" destination="Vnt-kM-aQt" id="rFu-R5-VLr"/>
+                        <outlet property="multiplayerImage" destination="zru-6s-Tcf" id="EjZ-Tf-QJd"/>
                         <outlet property="playGameDeckSwipe" destination="dST-VO-83N" id="sWl-53-p9Z"/>
                     </connections>
                 </viewController>
@@ -114,12 +151,22 @@
                 <viewControllerPlaceholder storyboardIdentifier="Play" storyboardName="Play" id="F06-lT-HZR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zq-e6-f3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686.5" y="198"/>
+            <point key="canvasLocation" x="686" y="188"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="UAJ-48-Irt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tutorial" id="Svk-GO-7C5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUk-S7-UcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696.5" y="240"/>
         </scene>
     </scenes>
     <resources>
         <image name="cardBack" width="488" height="679"/>
         <image name="hand" width="299" height="405"/>
+        <image name="helpButton (3)" width="571" height="250"/>
+        <image name="moreInfo" width="370" height="493"/>
         <image name="textLogo" width="315" height="231"/>
     </resources>
 </document>

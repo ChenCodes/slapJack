@@ -9,7 +9,7 @@
         <!--Welcome-->
         <scene sceneID="plh-v7-DS9">
             <objects>
-                <viewController storyboardIdentifier="tutorialPageBegin" title="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Blh-XA-mHC" customClass="TutorialsViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcome" title="Welcome" id="Blh-XA-mHC" customClass="TutorialWelcomeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iCw-l0-4Ch"/>
                         <viewControllerLayoutGuide type="bottom" id="pMm-SE-67q"/>
@@ -26,7 +26,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="JHo-R2-cZN" userLabel="Hand Image">
-                                <rect key="frame" x="80" y="455" width="50" height="50"/>
+                                <rect key="frame" x="80" y="605" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="P1p-Fu-bLy"/>
                                     <constraint firstAttribute="height" constant="50" id="aag-Cj-fpo"/>
@@ -57,7 +57,7 @@
                             <constraint firstItem="pMm-SE-67q" firstAttribute="top" secondItem="Uw1-sU-fMP" secondAttribute="bottom" constant="20" id="MWI-PU-8TL"/>
                             <constraint firstItem="GUE-Kt-6I9" firstAttribute="centerX" secondItem="K5U-wA-02M" secondAttribute="centerX" id="PRY-Bd-SQL"/>
                             <constraint firstItem="Uw1-sU-fMP" firstAttribute="centerX" secondItem="K5U-wA-02M" secondAttribute="centerX" id="VgS-Yh-05j"/>
-                            <constraint firstItem="DC9-1l-sA4" firstAttribute="top" secondItem="JHo-R2-cZN" secondAttribute="bottom" constant="-5" id="WUF-HZ-fPg"/>
+                            <constraint firstItem="DC9-1l-sA4" firstAttribute="top" secondItem="JHo-R2-cZN" secondAttribute="bottom" constant="-155" id="WUF-HZ-fPg"/>
                             <constraint firstItem="DC9-1l-sA4" firstAttribute="leading" secondItem="JHo-R2-cZN" secondAttribute="trailing" constant="8" id="Y46-1m-5Q6"/>
                             <constraint firstItem="DC9-1l-sA4" firstAttribute="top" secondItem="JHo-R2-cZN" secondAttribute="bottom" constant="25" id="cNy-Gv-hwI"/>
                         </constraints>
@@ -72,6 +72,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="handImage" destination="JHo-R2-cZN" id="MF8-0S-teT"/>
+                        <outlet property="tutorialDeckSwipe" destination="Uw1-sU-fMP" id="iod-ys-3jS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qip-6j-e2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,7 +82,7 @@
         <!--Deck Swipe-->
         <scene sceneID="4hM-3E-zbF">
             <objects>
-                <viewController title="Deck Swipe" id="Y3W-Re-NsB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="deckSwipe" title="Deck Swipe" id="Y3W-Re-NsB" customClass="TutorialDeckSwipeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cmV-Rc-6Qp"/>
                         <viewControllerLayoutGuide type="bottom" id="hZt-01-BQR"/>
@@ -105,7 +106,7 @@
                                 </constraints>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="3VY-97-eVz" userLabel="Hand Image">
-                                <rect key="frame" x="80" y="455" width="50" height="50"/>
+                                <rect key="frame" x="80" y="605" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AOJ-Sd-aOk"/>
                                     <constraint firstAttribute="width" constant="50" id="aIE-Ak-DcD"/>
@@ -123,7 +124,7 @@
                             <constraint firstItem="JjG-0y-xke" firstAttribute="centerX" secondItem="dB3-3K-Rla" secondAttribute="centerX" id="FvY-Bu-PhC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RAK-3T-wft" secondAttribute="trailing" constant="48" id="OC5-tb-0t4"/>
                             <constraint firstItem="hZt-01-BQR" firstAttribute="top" secondItem="gwW-Hl-GPY" secondAttribute="bottom" constant="20" id="QQQ-sL-c37"/>
-                            <constraint firstItem="gwW-Hl-GPY" firstAttribute="top" secondItem="3VY-97-eVz" secondAttribute="bottom" constant="-5" id="TkM-FQ-lbG"/>
+                            <constraint firstItem="gwW-Hl-GPY" firstAttribute="top" secondItem="3VY-97-eVz" secondAttribute="bottom" constant="-155" id="TkM-FQ-lbG"/>
                             <constraint firstItem="gwW-Hl-GPY" firstAttribute="leading" secondItem="3VY-97-eVz" secondAttribute="trailing" constant="8" id="Uq5-wL-ixP"/>
                             <constraint firstItem="RAK-3T-wft" firstAttribute="top" secondItem="cmV-Rc-6Qp" secondAttribute="bottom" constant="8" id="Vdy-3D-4BQ"/>
                             <constraint firstItem="RAK-3T-wft" firstAttribute="leading" secondItem="dB3-3K-Rla" secondAttribute="leadingMargin" constant="47" id="dkY-hj-axa"/>
@@ -132,6 +133,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="deckSwipe" destination="JjG-0y-xke" id="szY-iT-BYF"/>
+                        <outlet property="handImage" destination="3VY-97-eVz" id="0kF-9k-WKK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWm-zR-imJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +145,7 @@
         <!--Jack Swipe-->
         <scene sceneID="NyR-QV-Mvg">
             <objects>
-                <viewController title="Jack Swipe" id="46H-MF-7hA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="jackSwipe" title="Jack Swipe" id="46H-MF-7hA" customClass="TutorialJackSwipeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Hx-og-zYJ"/>
                         <viewControllerLayoutGuide type="bottom" id="NW7-aV-iLJ"/>
@@ -150,27 +155,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeDownWhenAJackAppears" translatesAutoresizingMaskIntoConstraints="NO" id="Jtu-vy-VhJ">
-                                <rect key="frame" x="63" y="28" width="248" height="237"/>
+                                <rect key="frame" x="63" y="28" width="248" height="260"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="237" id="9jV-AA-bOt"/>
+                                    <constraint firstAttribute="height" constant="260" id="9jV-AA-bOt"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Jack of Clubs" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-80-ud2" userLabel="pileOfCards">
-                                <rect key="frame" x="138" y="277" width="98" height="147"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jack of Clubs" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-80-ud2" userLabel="pileOfCards">
+                                <rect key="frame" x="138" y="300" width="98" height="147"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="DqC-AM-CQK"/>
                                     <constraint firstAttribute="height" constant="147" id="qrS-xg-IB7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBu-YG-6cE">
-                                <rect key="frame" x="127" y="273" width="120" height="155"/>
+                                <rect key="frame" x="127" y="296" width="120" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="CGR-3b-cbt"/>
                                     <constraint firstAttribute="height" constant="155" id="Xlh-Nh-ePy"/>
                                 </constraints>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="r1a-kJ-6L2" userLabel="Hand Image">
-                                <rect key="frame" x="69" y="416" width="50" height="50"/>
+                                <rect key="frame" x="69" y="301" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Vh8-mL-0o1"/>
                                     <constraint firstAttribute="height" constant="50" id="xuQ-7S-gNz"/>
@@ -180,15 +185,22 @@
                         <color key="backgroundColor" red="0.2943561911" green="0.39831912879999998" blue="0.27178159219999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dBu-YG-6cE" firstAttribute="centerX" secondItem="0FP-gt-3li" secondAttribute="centerX" id="Dep-n1-ms9"/>
-                            <constraint firstItem="r1a-kJ-6L2" firstAttribute="top" secondItem="dBu-YG-6cE" secondAttribute="bottom" constant="-12" id="Me5-j8-m8G"/>
+                            <constraint firstItem="r1a-kJ-6L2" firstAttribute="top" secondItem="dBu-YG-6cE" secondAttribute="bottom" constant="-150" id="Me5-j8-m8G"/>
+                            <constraint firstItem="DTg-80-ud2" firstAttribute="centerX" secondItem="0FP-gt-3li" secondAttribute="centerX" id="Q2p-VZ-Kpe"/>
                             <constraint firstItem="Jtu-vy-VhJ" firstAttribute="top" secondItem="9Hx-og-zYJ" secondAttribute="bottom" constant="8" id="RJN-Dc-5WS"/>
                             <constraint firstItem="dBu-YG-6cE" firstAttribute="leading" secondItem="r1a-kJ-6L2" secondAttribute="trailing" constant="8" id="WUB-WC-nBd"/>
+                            <constraint firstItem="DTg-80-ud2" firstAttribute="top" secondItem="Jtu-vy-VhJ" secondAttribute="bottom" constant="12" id="WfQ-QS-0mI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jtu-vy-VhJ" secondAttribute="trailing" constant="48" id="b6Q-aU-JOy"/>
                             <constraint firstItem="Jtu-vy-VhJ" firstAttribute="leading" secondItem="0FP-gt-3li" secondAttribute="leadingMargin" constant="47" id="hCK-I1-KoY"/>
+                            <constraint firstItem="dBu-YG-6cE" firstAttribute="top" secondItem="Jtu-vy-VhJ" secondAttribute="bottom" constant="8" id="reE-Q3-zlJ"/>
                             <constraint firstItem="dBu-YG-6cE" firstAttribute="top" secondItem="Jtu-vy-VhJ" secondAttribute="bottom" constant="8" id="z0v-NR-Dkk"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="handImage" destination="r1a-kJ-6L2" id="G3n-RV-d5j"/>
+                        <outlet property="jackSwipe" destination="dBu-YG-6cE" id="654-Ui-Sa7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XD9-F8-NuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,7 +209,7 @@
         <!--Win-->
         <scene sceneID="y1k-Gb-yNH">
             <objects>
-                <viewController title="Win" id="3tE-M1-5WN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="win" title="Win" id="3tE-M1-5WN" customClass="TutorialWinViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jBu-Wp-2cO"/>
                         <viewControllerLayoutGuide type="bottom" id="FS8-cw-1CK"/>
@@ -221,10 +233,16 @@
                                 </constraints>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="UEF-9y-pvJ" userLabel="Hand Image">
-                                <rect key="frame" x="80" y="476" width="50" height="50"/>
+                                <rect key="frame" x="80" y="602" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Jry-NI-tvV"/>
                                     <constraint firstAttribute="height" constant="50" id="T72-f6-w1y"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstPlayerToFiftyTwoCardsWins" translatesAutoresizingMaskIntoConstraints="NO" id="4BH-nP-xJt">
+                                <rect key="frame" x="63" y="20" width="248" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="my1-fy-mNr"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -233,12 +251,19 @@
                             <constraint firstItem="jK9-nj-o1Z" firstAttribute="centerX" secondItem="K3l-Sg-X6q" secondAttribute="centerX" id="5ql-gK-1Gz"/>
                             <constraint firstItem="jK9-nj-o1Z" firstAttribute="leading" secondItem="UEF-9y-pvJ" secondAttribute="trailing" constant="-3" id="6VB-ka-LwM"/>
                             <constraint firstItem="FS8-cw-1CK" firstAttribute="top" secondItem="pqw-4F-mTK" secondAttribute="bottom" constant="24" id="8On-co-Knn"/>
-                            <constraint firstItem="jK9-nj-o1Z" firstAttribute="top" secondItem="UEF-9y-pvJ" secondAttribute="bottom" constant="-34" id="Ouw-0I-Oga"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4BH-nP-xJt" secondAttribute="trailing" constant="48" id="9U9-c7-AfJ"/>
+                            <constraint firstItem="jK9-nj-o1Z" firstAttribute="top" secondItem="UEF-9y-pvJ" secondAttribute="bottom" constant="-160" id="Ouw-0I-Oga"/>
+                            <constraint firstItem="4BH-nP-xJt" firstAttribute="top" secondItem="jBu-Wp-2cO" secondAttribute="bottom" id="VOn-8U-iuS"/>
+                            <constraint firstItem="4BH-nP-xJt" firstAttribute="leading" secondItem="K3l-Sg-X6q" secondAttribute="leadingMargin" constant="47" id="Xcq-Lg-z8Q"/>
                             <constraint firstItem="pqw-4F-mTK" firstAttribute="centerX" secondItem="K3l-Sg-X6q" secondAttribute="centerX" id="ZOB-1e-yXU"/>
                             <constraint firstItem="FS8-cw-1CK" firstAttribute="top" secondItem="jK9-nj-o1Z" secondAttribute="bottom" constant="20" id="fct-H8-KZg"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dekSwipe" destination="jK9-nj-o1Z" id="Naa-HV-5Ze"/>
+                        <outlet property="handImage" destination="UEF-9y-pvJ" id="7rP-XX-eU3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqo-fW-Rcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,7 +272,7 @@
         <!--Enjoy-->
         <scene sceneID="Wz9-CD-nji">
             <objects>
-                <viewController title="Enjoy" id="ya3-FR-SL4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enjoy" title="Enjoy" id="ya3-FR-SL4" customClass="TutorialEnjoyViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v6W-OR-DXy"/>
                         <viewControllerLayoutGuide type="bottom" id="Zpy-e9-HRn"/>
@@ -270,15 +295,18 @@
                                     <constraint firstAttribute="width" constant="98" id="ZVI-1F-X15"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkY-yu-0Lc">
-                                <rect key="frame" x="127" y="492" width="120" height="155"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkY-yu-0Lc">
+                                <rect key="frame" x="127" y="493" width="120" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="155" id="4nY-3A-G7J"/>
                                     <constraint firstAttribute="width" constant="120" id="7bG-aI-Ggt"/>
                                 </constraints>
+                                <connections>
+                                    <segue destination="9MX-QR-Xbd" kind="show" id="GOd-by-Ud3"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="0na-j4-dcz" userLabel="Hand Image">
-                                <rect key="frame" x="69" y="468" width="50" height="50"/>
+                                <rect key="frame" x="69" y="606" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Shv-UD-uEM"/>
                                     <constraint firstAttribute="height" constant="50" id="Tmw-Pg-tW0"/>
@@ -292,22 +320,35 @@
                             <constraint firstItem="uEG-ya-Pis" firstAttribute="centerX" secondItem="HJw-iW-vo3" secondAttribute="centerX" id="EtX-cV-erm"/>
                             <constraint firstItem="SkY-yu-0Lc" firstAttribute="centerX" secondItem="HJw-iW-vo3" secondAttribute="centerX" id="PYK-aF-SFT"/>
                             <constraint firstItem="tMr-PE-YYh" firstAttribute="centerX" secondItem="HJw-iW-vo3" secondAttribute="centerX" id="S3Z-gL-baW"/>
-                            <constraint firstItem="uEG-ya-Pis" firstAttribute="top" secondItem="0na-j4-dcz" secondAttribute="bottom" constant="-22" id="jJ7-Hs-dLp"/>
+                            <constraint firstItem="uEG-ya-Pis" firstAttribute="top" secondItem="0na-j4-dcz" secondAttribute="bottom" constant="-160" id="jJ7-Hs-dLp"/>
                             <constraint firstItem="Zpy-e9-HRn" firstAttribute="top" secondItem="uEG-ya-Pis" secondAttribute="bottom" constant="24" id="mhY-KW-uQb"/>
                             <constraint firstItem="Zpy-e9-HRn" firstAttribute="top" secondItem="SkY-yu-0Lc" secondAttribute="bottom" constant="20" id="ovy-nH-013"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="deckSwipe" destination="SkY-yu-0Lc" id="TG9-Dm-WUc"/>
+                        <outlet property="handImage" destination="0na-j4-dcz" id="gHd-6m-TRt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VD4-lQ-sX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2272.5" y="405.5"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="OBh-fB-7Yw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="9MX-QR-Xbd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBG-pj-L7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2640.5" y="406"/>
         </scene>
     </scenes>
     <resources>
         <image name="Jack of Clubs" width="488" height="679"/>
         <image name="cardBack" width="488" height="679"/>
         <image name="enjoySlapJack" width="565" height="262"/>
+        <image name="firstPlayerToFiftyTwoCardsWins" width="562" height="342"/>
         <image name="hand" width="299" height="405"/>
         <image name="swipeDownWhenAJackAppears" width="510" height="558"/>
         <image name="swipeUpToPutACardInThePile" width="501" height="455"/>

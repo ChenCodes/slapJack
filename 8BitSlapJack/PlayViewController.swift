@@ -25,7 +25,6 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var playerTwoSwiped: UIButton!
     @IBOutlet weak var pileSwiped: UIButton!
     
-    @IBOutlet weak var penaltyLabel: UILabel!
     @IBOutlet weak var redXImageView: UIImageView!
     
     var game = Deck()
@@ -35,10 +34,14 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         swipeControl(playerOneSwiped, playerTwoSwiped, pileSwiped)
         Animations.invertP2(playerTwoCardCount, playerTwoTextLabel, playerTwoDeckImage)
-        Animations.animateSelectedDeck(self.playerOneDeckView)
         self.playerOneDeckView.alpha = 1.0
         self.redXImageView.alpha = 0.0
         newGame()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        Animations.animateSelectedDeck(self.playerOneDeckView)
     }
     
     /**
@@ -129,7 +132,6 @@ class PlayViewController: UIViewController {
             } else {
                 game.burnCardFrom(isPlayerOne)
                 
-                Animations.animatePenalty(penaltyLabel)
                 Animations.animateBigRedX(redXImageView)
                 
                 playerOneCardCount.text = String(game.playerOneDeck.count)
@@ -158,7 +160,6 @@ class PlayViewController: UIViewController {
                 cleanTheDeck()
             } else {
                 game.burnCardFrom(isPlayerOne)
-                Animations.animatePenalty(penaltyLabel)
                 Animations.animateBigRedX(redXImageView)
                 
                 playerTwoCardCount.text = String(game.playerTwoDeck.count)

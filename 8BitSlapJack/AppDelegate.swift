@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
         
         if (!isAppAlreadyLaunchedOnce()) {
-            let rootController = storyboard.instantiateViewControllerWithIdentifier("tutorialPageBegin") as UIViewController!
+            let rootController = storyboard.instantiateViewControllerWithIdentifier("welcome") as UIViewController!
             //            print("first time launch! play tutorial")
             if let window = self.window {
                 window.rootViewController = rootController
             }
         } else {
             storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let rootController = storyboard.instantiateViewControllerWithIdentifier("homePageController") as UIViewController!
+            let rootController = storyboard.instantiateViewControllerWithIdentifier("Home") as UIViewController!
             if let window = self.window {
                 window.rootViewController = rootController
             }
