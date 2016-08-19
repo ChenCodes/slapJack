@@ -16,6 +16,23 @@ class Animations {
         p2TextLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         p2DeckImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
     }
+    
+    static func animateMultiplayerImage(image: UIImageView) {
+        UIView.animateWithDuration(1.0, delay: 0.0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction], animations: {
+            image.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            }, completion: nil)
+        
+//        UIView.animateWithDuration(0.25 ,
+//                                   options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.AllowUserInteraction],
+//                                   animations: {
+//                                    image.transform = CGAffineTransformMakeScale(2, 2)
+//            },
+//                                   completion: { finish in
+//                                    UIView.animateWithDuration(0.25){
+//                                        image.transform = CGAffineTransformIdentity
+//                                    }
+//        })
+    }
 
     static func animateSelectedDeck(deck: UIView, withduration duration: NSTimeInterval = 1.0) {
         UIView.animateWithDuration(duration,

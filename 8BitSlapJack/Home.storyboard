@@ -95,6 +95,13 @@
                                     <segue destination="Svk-GO-7C5" kind="show" id="0ME-9P-GGc"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpButton (3)" translatesAutoresizingMaskIntoConstraints="NO" id="zru-6s-Tcf">
+                                <rect key="frame" x="119" y="164" width="137" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="6iP-6R-Q9G"/>
+                                    <constraint firstAttribute="height" constant="30" id="ATV-OC-RGt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.72549019609999998" green="0.92156862750000001" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -104,11 +111,14 @@
                             <constraint firstItem="PpC-UK-vRF" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="Cn1-90-jCT"/>
                             <constraint firstItem="Vnt-kM-aQt" firstAttribute="top" secondItem="dST-VO-83N" secondAttribute="bottom" constant="24" id="DeQ-dI-X32"/>
                             <constraint firstItem="Vnt-kM-aQt" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="EQs-Ym-Y9n"/>
+                            <constraint firstItem="zru-6s-Tcf" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="LMw-vB-vlv"/>
                             <constraint firstItem="dST-VO-83N" firstAttribute="top" secondItem="PpC-UK-vRF" secondAttribute="bottom" constant="-150" id="LrD-GX-Ou3"/>
+                            <constraint firstItem="zru-6s-Tcf" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="RYO-Bg-UmX"/>
                             <constraint firstItem="dST-VO-83N" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="USP-rn-MDj"/>
                             <constraint firstItem="hmc-Gq-V5e" firstAttribute="centerY" secondItem="GdS-SH-UfA" secondAttribute="centerY" id="fqI-Be-v8w"/>
                             <constraint firstItem="KXG-N3-xNU" firstAttribute="top" secondItem="V2C-MZ-0Ms" secondAttribute="bottom" constant="8" id="mXd-7n-FET"/>
                             <constraint firstItem="eoc-0O-eot" firstAttribute="top" secondItem="JW6-Jf-cVW" secondAttribute="bottom" constant="10" id="p8D-NY-45Z"/>
+                            <constraint firstItem="zru-6s-Tcf" firstAttribute="top" secondItem="KXG-N3-xNU" secondAttribute="bottom" constant="8" id="qQc-iK-4Kz"/>
                             <constraint firstItem="eoc-0O-eot" firstAttribute="top" secondItem="o0m-g7-tsx" secondAttribute="bottom" constant="8" id="tGQ-9C-Xfr"/>
                             <constraint firstItem="hmc-Gq-V5e" firstAttribute="centerX" secondItem="GdS-SH-UfA" secondAttribute="centerX" id="wVw-sH-xdK"/>
                             <constraint firstItem="dST-VO-83N" firstAttribute="leading" secondItem="PpC-UK-vRF" secondAttribute="trailing" constant="8" id="wjq-9m-Tne"/>
@@ -117,6 +127,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="RYO-Bg-UmX"/>
                                 <exclude reference="Cn1-90-jCT"/>
                                 <exclude reference="yEe-3T-hq1"/>
                             </mask>
@@ -126,6 +137,7 @@
                     <connections>
                         <outlet property="handImage" destination="PpC-UK-vRF" id="kbI-zm-2FR"/>
                         <outlet property="instructionLabel" destination="Vnt-kM-aQt" id="rFu-R5-VLr"/>
+                        <outlet property="multiplayerImage" destination="zru-6s-Tcf" id="EjZ-Tf-QJd"/>
                         <outlet property="playGameDeckSwipe" destination="dST-VO-83N" id="sWl-53-p9Z"/>
                     </connections>
                 </viewController>

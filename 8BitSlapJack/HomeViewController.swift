@@ -12,6 +12,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var playGameDeckSwipe: UIButton!
     @IBOutlet weak var handImage: UIImageView!
     @IBOutlet weak var instructionLabel: UILabel!
+    
+    @IBOutlet weak var multiplayerImage: UIImageView!
+    
 
     @IBAction func goToBrowser(sender: AnyObject) {
         let url = NSURL(string: "https://strcatstudios.github.io/")!
@@ -30,6 +33,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(true)
         Animations.animateHand(hand: self.handImage)
         Animations.animateInstructions(label: self.instructionLabel)
+        Animations.animateMultiplayerImage(self.multiplayerImage)
     }
     
     func playSwipe() {
