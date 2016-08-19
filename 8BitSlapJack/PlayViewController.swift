@@ -136,7 +136,7 @@ class PlayViewController: UIViewController {
                 pileOfCardsCount.text = String(game.mainPileDeck.count)
                 let isPlayerOneTurnNow = true
                 if game.playerOneDeck.count == 0 {
-                    game.win(!isPlayerOneTurn)
+                    game.win(!isPlayerOneTurnNow)
                     newGame()
                 }
                 

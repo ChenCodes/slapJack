@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="Nob-9F-sBU">
             <objects>
-                <viewController id="vek-0c-Agc" customClass="HomeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePageController" id="vek-0c-Agc" customClass="HomeViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V2C-MZ-0Ms"/>
                         <viewControllerLayoutGuide type="bottom" id="eoc-0O-eot"/>

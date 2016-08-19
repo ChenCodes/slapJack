@@ -9,7 +9,7 @@
         <!--Welcome-->
         <scene sceneID="plh-v7-DS9">
             <objects>
-                <viewController title="Welcome" id="Blh-XA-mHC" customClass="TutorialsViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tutorialPageBegin" title="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Blh-XA-mHC" customClass="TutorialsViewController" customModule="_BitSlapJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iCw-l0-4Ch"/>
                         <viewControllerLayoutGuide type="bottom" id="pMm-SE-67q"/>

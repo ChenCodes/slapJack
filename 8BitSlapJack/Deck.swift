@@ -98,6 +98,7 @@ class Deck {
         if playerOneTurn {
             alert.message = "Player One Wins."
         } else {
+            print("should come here")
             alert.message = "Player Two Wins."
         }
         
