@@ -28,9 +28,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-Wo-Pjk" userLabel="pileOfCards">
-                                <rect key="frame" x="138" y="260" width="98" height="147"/>
+                                <rect key="frame" x="138" y="269" width="98" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="147" id="Y1h-Ru-OZz"/>
+                                    <constraint firstAttribute="height" constant="130" id="Y1h-Ru-OZz"/>
                                     <constraint firstAttribute="width" constant="98" id="s3K-sD-KpU"/>
                                 </constraints>
                             </imageView>
@@ -65,10 +65,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-WN-8zQ" userLabel="Player One Deck View">
-                                <rect key="frame" x="135" y="492" width="105" height="155"/>
+                                <rect key="frame" x="135" y="517" width="105" height="130"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-Lj-tqS" userLabel="playerOneHand">
-                                        <rect key="frame" x="3" y="4" width="98" height="147"/>
+                                        <rect key="frame" x="3" y="4" width="98" height="122"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="98" id="L9y-u5-77n"/>
@@ -92,19 +92,19 @@
                                     <constraint firstAttribute="bottom" secondItem="d0d-Lj-tqS" secondAttribute="bottom" constant="4" id="YMd-M5-U9s"/>
                                     <constraint firstItem="d0d-Lj-tqS" firstAttribute="centerY" secondItem="sGh-WN-8zQ" secondAttribute="centerY" id="arL-hE-1tt"/>
                                     <constraint firstItem="d0d-Lj-tqS" firstAttribute="leading" secondItem="sGh-WN-8zQ" secondAttribute="leading" constant="3" id="bmL-oX-jh6"/>
-                                    <constraint firstAttribute="height" constant="155" id="cja-kY-P5P"/>
+                                    <constraint firstAttribute="height" constant="130" id="cja-kY-P5P"/>
                                     <constraint firstAttribute="trailing" secondItem="d0d-Lj-tqS" secondAttribute="trailing" constant="4" id="dkc-bc-6uE"/>
                                     <constraint firstAttribute="width" constant="105" id="htN-7h-hwt"/>
                                     <constraint firstItem="d0d-Lj-tqS" firstAttribute="centerX" secondItem="sGh-WN-8zQ" secondAttribute="centerX" id="mcZ-gb-8GZ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-0v-DyX">
-                                <rect key="frame" x="128" y="492" width="120" height="155"/>
+                                <rect key="frame" x="128" y="517" width="120" height="130"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="62S-8o-PSP"/>
                                     <constraint firstAttribute="width" constant="98" id="iUn-Y9-Qgm"/>
-                                    <constraint firstAttribute="height" constant="155" id="k6W-m8-HAa"/>
+                                    <constraint firstAttribute="height" constant="130" id="k6W-m8-HAa"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -133,10 +133,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZe-kL-2x4" userLabel="Player Two Deck View">
-                                <rect key="frame" x="135" y="28" width="105" height="155"/>
+                                <rect key="frame" x="135" y="28" width="105" height="130"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardBack" translatesAutoresizingMaskIntoConstraints="NO" id="99r-g4-aEc" userLabel="playerTwoHand">
-                                        <rect key="frame" x="4" y="4" width="97" height="147"/>
+                                        <rect key="frame" x="4" y="4" width="97" height="122"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,23 +145,23 @@
                                     <constraint firstAttribute="bottom" secondItem="99r-g4-aEc" secondAttribute="bottom" constant="4" id="Hgs-FZ-2ho"/>
                                     <constraint firstAttribute="width" constant="105" id="Ozx-uj-Gcv"/>
                                     <constraint firstAttribute="trailing" secondItem="99r-g4-aEc" secondAttribute="trailing" constant="4" id="dyJ-Ug-9Va"/>
-                                    <constraint firstAttribute="height" constant="155" id="wnM-v8-sD8"/>
+                                    <constraint firstAttribute="height" constant="130" id="wnM-v8-sD8"/>
                                     <constraint firstItem="99r-g4-aEc" firstAttribute="leading" secondItem="MZe-kL-2x4" secondAttribute="leading" constant="4" id="ztK-MS-AWs"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgO-dv-F2p" userLabel="Player Two Swipe">
-                                <rect key="frame" x="128" y="28" width="120" height="155"/>
+                                <rect key="frame" x="128" y="28" width="120" height="130"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="155" id="4eA-0N-ADT"/>
+                                    <constraint firstAttribute="height" constant="130" id="4eA-0N-ADT"/>
                                     <constraint firstAttribute="width" constant="120" id="Fap-FZ-M9K"/>
                                 </constraints>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="629-bN-oVN">
-                                <rect key="frame" x="138" y="260" width="98" height="147"/>
+                                <rect key="frame" x="138" y="269" width="98" height="130"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="147" id="2RY-Dy-uow"/>
+                                    <constraint firstAttribute="height" constant="130" id="2RY-Dy-uow"/>
                                     <constraint firstAttribute="width" constant="98" id="PC9-dR-spT"/>
                                 </constraints>
                             </button>
