@@ -13,9 +13,12 @@ If a player incorrectly swipes the card in the middle pile, the penalty is that 
 
 
 ![Alt text](14074311_1112416752174657_1087406266_o.jpg)
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](14074471_1112416718841327_1329519105_o.jpg)
+![Alt text](14075201_1112416728841326_837306143_o.jpg)
+![Alt text](14087416_1112416715507994_117565988_o.jpg)
+![Alt text](14114675_1112416695507996_1798253371_o.jpg)
+![Alt text](14124182_1112416705507995_1958273954_o.jpg)
+
+
+
 
