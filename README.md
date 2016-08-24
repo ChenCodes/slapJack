@@ -2,6 +2,7 @@
 
 ####App specification:
 This app is modeled after the game SlapJack. It is available on the AppStore. 
+
 https://itunes.apple.com/us/app/8bit-slapjack/id1146084291?mt=8
 
 ####Gameplay:
